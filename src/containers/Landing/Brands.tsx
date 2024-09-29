@@ -40,7 +40,7 @@ const Brands: React.FC = () => {
             Trusted by Industry Leaders Worldwide
           </h2>
           <p className="text-gray-400 font-bold">
-            We've partnered with renowned brands and clients to deliver
+            We&apos;ve partnered with renowned brands and clients to deliver
             exceptional second-hand audio solutions globally.
           </p>
         </div>
