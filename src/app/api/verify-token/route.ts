@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
       await jwtVerify(token, new TextEncoder().encode(AUTH_SEED));
       return NextResponse.json({ valid: true }, { status: 200 });
     } catch (error) {
-      return NextResponse.json({ valid: false, error: 'Invalid token' }, { status: 401 });
+      return NextResponse.json({ valid: false, error: 'Invalid token: ' + error}, { status: 401 });
     }
   } catch (error) {
     console.error('Token verification error:', error);

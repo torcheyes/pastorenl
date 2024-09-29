@@ -140,7 +140,7 @@ export function ProductForm({ initialData }: ProductFormProps) {
                 throw new Error('Failed to save product');
             }
     
-            const result = await response.json();
+            await response.json();
             alert(initialData ? 'Product updated successfully!' : 'Product created successfully!');
             router.push('/admin/products'); // Redirect to product list
         } catch (error) {
