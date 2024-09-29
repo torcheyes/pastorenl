@@ -1,7 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { IProduct } from '@models/product.model';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { IProduct } from "@models/product.model";
 
 interface ProductCardProps {
   product: IProduct;
@@ -16,7 +16,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
         <div className="relative h-48 w-full">
           <Image
-            src={imagePath.split(',')[0]} // Use the first image
+            src={imagePath.split(",")[0]} // Use the first image
             alt={title}
             layout="fill"
             objectFit="cover"

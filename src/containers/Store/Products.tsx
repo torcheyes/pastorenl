@@ -1,6 +1,6 @@
-import React from 'react';
-import ProductCard from '@components/Card/ProductCard';
-import { IProduct } from '@models/product.model';
+import React from "react";
+import ProductCard from "@components/Card/ProductCard";
+import { IProduct } from "@models/product.model";
 
 interface ProductsProps {
   products: IProduct[];

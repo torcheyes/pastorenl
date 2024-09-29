@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface SortOption {
   value: string;
@@ -12,7 +12,12 @@ interface SortBySelectProps {
   onChange: (value: string) => void;
 }
 
-export const SortBySelect: React.FC<SortBySelectProps> = ({ label, options, value, onChange }) => {
+export const SortBySelect: React.FC<SortBySelectProps> = ({
+  label,
+  options,
+  value,
+  onChange,
+}) => {
   return (
     <div className="flex items-center">
       <span className="mr-2">{label}</span>

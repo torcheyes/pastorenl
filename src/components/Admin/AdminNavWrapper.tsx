@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import AdminNav from '@containers/Admin/AdminNav';
+import { usePathname } from "next/navigation";
+import AdminNav from "@containers/Admin/AdminNav";
 
 const AdminNavWrapper = () => {
   const pathname = usePathname();
-  const isLoginPage = pathname === '/admin/login';
+  const isLoginPage = pathname === "/admin/login";
 
   if (isLoginPage) {
     return null;

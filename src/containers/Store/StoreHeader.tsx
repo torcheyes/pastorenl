@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import {StoreCategoryButton} from '@components/Button/StoreCategoryButton';
-import {SortBySelect} from '@components/Select/SortBySelect';
+import React from "react";
+import Image from "next/image";
+import { StoreCategoryButton } from "@components/Button/StoreCategoryButton";
+import { SortBySelect } from "@components/Select/SortBySelect";
 
 interface StoreHeaderProps {
   onCategoryChange: (category: string) => void;
@@ -16,9 +16,19 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
   onCategoryChange,
   onSortChange,
   currentCategory,
-  currentSort
+  currentSort,
 }) => {
-  const categories = ['All', 'Speakers', 'Amplifiers', 'Mixing Panels', 'Processors', 'Equalizers', 'Effects', 'Lighting', 'Other'];
+  const categories = [
+    "All",
+    "Speakers",
+    "Amplifiers",
+    "Mixing Panels",
+    "Processors",
+    "Equalizers",
+    "Effects",
+    "Lighting",
+    "Other",
+  ];
 
   return (
     <div className="w-full mb-16">
@@ -64,9 +74,9 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
             <SortBySelect
               label="Sort by"
               options={[
-                { value: 'latest', label: 'Latest' },
-                { value: 'price_asc', label: 'Price: Low to High' },
-                { value: 'price_desc', label: 'Price: High to Low' }
+                { value: "latest", label: "Latest" },
+                { value: "price_asc", label: "Price: Low to High" },
+                { value: "price_desc", label: "Price: High to Low" },
               ]}
               value={currentSort}
               onChange={(value) => onSortChange(value)}

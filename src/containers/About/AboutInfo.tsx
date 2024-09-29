@@ -1,5 +1,5 @@
-import React from 'react';
-import AboutCard from '@components/Card/AboutCard';
+import React from "react";
+import AboutCard from "@components/Card/AboutCard";
 
 const AboutInfo: React.FC = () => {
   return (

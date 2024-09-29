@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 interface BottomNavigationProps {
   currentPage: number;
@@ -47,7 +47,7 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
             key={number}
             onClick={() => onPageChange(number)}
             className={`px-2 py-1 border rounded ${
-              currentPage === number ? 'bg-orange-500 text-white' : ''
+              currentPage === number ? "bg-orange-500 text-white" : ""
             }`}
           >
             {number}

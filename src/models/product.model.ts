@@ -15,7 +15,7 @@ export interface IProduct extends Document {
   slug: string;
   title: string;
   brand: string;
-  tagline: string;  
+  tagline: string;
   description?: string;
   price: number;
   imagePath: string;
@@ -54,7 +54,7 @@ const productSchema = new mongoose.Schema<IProduct>({
     type: String,
     required: true,
   },
-  tagline: {  
+  tagline: {
     type: String,
     required: true,
   },
@@ -75,14 +75,18 @@ const productSchema = new mongoose.Schema<IProduct>({
     type: dimensionsSchema,
     required: true,
   },
-  features: [{
-    type: String,
-    required: true,
-  }],
-  whatsInTheBox: [{
-    type: String,
-    required: true,
-  }],
+  features: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
+  whatsInTheBox: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
   negotiable: {
     type: Boolean,
     required: true,
@@ -99,17 +103,23 @@ const productSchema = new mongoose.Schema<IProduct>({
     max: 99,
     default: 0,
   },
-  featured: {  
+  featured: {
     type: Boolean,
     required: true,
     default: false,
   },
 });
 
-productSchema.index({ title: 'text', description: 'text', brand: 'text', tagline: 'text' });
+productSchema.index({
+  title: "text",
+  description: "text",
+  brand: "text",
+  tagline: "text",
+});
 
 // Check if the model already exists before compiling it
-const Product: Model<IProduct> = mongoose.models.Product || mongoose.model<IProduct>("Product", productSchema);
+const Product: Model<IProduct> =
+  mongoose.models.Product || mongoose.model<IProduct>("Product", productSchema);
 
 export default Product;
 

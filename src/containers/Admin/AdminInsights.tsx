@@ -1,12 +1,5 @@
-
-
 const AdminInsights: React.FC = () => {
-
-  return (
-    <div className="p-6">
-
-    </div>
-  );
+  return <div className="p-6"></div>;
 };
 
 export default AdminInsights;

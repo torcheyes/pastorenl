@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import Cookies from 'js-cookie';
-import { FaChartBar, FaBox, FaSignOutAlt } from 'react-icons/fa';
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
+import { FaChartBar, FaBox, FaSignOutAlt } from "react-icons/fa";
 
 const AdminNav = () => {
   const router = useRouter();
 
   const handleLogout = () => {
-    Cookies.remove('token');
-    router.push('/admin/login');
+    Cookies.remove("token");
+    router.push("/admin/login");
   };
 
   const navItems = [
-    { href: '/admin/dashboard', label: 'Insights', icon: FaChartBar },
-    { href: '/admin/products', label: 'Products', icon: FaBox },
+    { href: "/admin/dashboard", label: "Insights", icon: FaChartBar },
+    { href: "/admin/products", label: "Products", icon: FaBox },
   ];
 
   return (
@@ -24,7 +24,7 @@ const AdminNav = () => {
         <ul className="flex items-center h-16">
           {navItems.map((item) => (
             <li key={item.href} className="mr-1">
-              <Link 
+              <Link
                 href={item.href}
                 className="flex items-center px-4 py-2 rounded-t-lg transition-colors duration-200 text-gray-700 hover:bg-gray-100"
               >
