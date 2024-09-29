@@ -7,3 +7,5 @@ export const toSeed = (mnemonic: string): string => {
 
   return bip39.mnemonicToSeedSync(mnemonic).toString("hex");
 };
+
+// path: src/utils/crypto.util.ts

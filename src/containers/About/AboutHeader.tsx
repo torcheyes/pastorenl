@@ -14,7 +14,7 @@ const AboutHeader: React.FC = () => {
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative">
-            <div className="absolute inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-md rounded-3xl"></div>
+            <div className="absolute inset-0  bg-opacity-50 backdrop-blur-md rounded-3xl"></div>
             <h1 className="text-white text-7xl font-bold relative z-10 px-8 py-4">
               pa/store
             </h1>

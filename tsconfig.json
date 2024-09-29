@@ -18,10 +18,12 @@
       }
     ],
     "paths": {
+      "@middleware/*": ["./src/middleware/*"],
       "@controllers/*": ["./src/controllers/*"],
       "@components/*": ["./src/components/*"],
       "@containers/*": ["./src/containers/*"],
       "@models/*": ["./src/models/*"],
+      "@hooks/*": ["./src/hooks/*"],
       "@utils/*": ["./src/utils/*"]
     }
   },

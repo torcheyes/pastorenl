@@ -5,11 +5,11 @@ import ServiceForSourcing from "@containers/Landing/ServiceForSourcing";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Landing />
       <Brands />
       <ServiceForLargeCompanies />
       <ServiceForSourcing />
-    </>
+    </div>
   );
 }
