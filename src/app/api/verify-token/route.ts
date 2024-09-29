@@ -7,6 +7,8 @@ if (!AUTH_SEED) {
   throw new Error('SEED environment variable is not set');
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     const token = request.cookies.get('token')?.value;
