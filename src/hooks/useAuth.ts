@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { getCookies } from 'next-client-cookies/server';
 
 export function useAuth() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -7,9 +8,8 @@ export function useAuth() {
   const router = useRouter();
 
   const getCookie = (name: string) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop()?.split(';').shift();
+    const cookies = getCookies();
+    return cookies.get(name);
   };
 
   const setCookie = (name: string, value: string, days: number) => {
