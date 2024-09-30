@@ -19,7 +19,7 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
   onPageChange,
   onItemsPerPageChange,
 }) => {
-  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+  // const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   const renderPageNumbers = () => {
     const maxPagesToShow = 5;

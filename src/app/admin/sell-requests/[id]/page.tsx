@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useAuth } from "@hooks/useAuth";
 import { IIncoming } from "@models/incoming.model";
 import Image from "next/image";
 
 const SellRequestPage = () => {
   const { isAuthenticated, isLoading, authFetch } = useAuth();
-  const router = useRouter();
   const { id } = useParams();
   const [request, setRequest] = useState<IIncoming | null>(null);
 

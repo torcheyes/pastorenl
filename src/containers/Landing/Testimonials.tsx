@@ -48,6 +48,8 @@ const Testimonials: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  {
+    /*
   const getVisibleTestimonials = () => {
     const indices = [
       (currentIndex - 1 + testimonials.length) % testimonials.length,
@@ -56,6 +58,8 @@ const Testimonials: React.FC = () => {
     ];
     return indices.map((index) => testimonials[index]);
   };
+   */
+  }
 
   return (
     <div className="w-full py-16 bg-gray-50">

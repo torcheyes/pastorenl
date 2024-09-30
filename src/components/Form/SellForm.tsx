@@ -44,7 +44,7 @@ export const SellForm = () => {
     });
 
     // Append images to FormData
-    images.forEach((image, index) => {
+    images.forEach((image) => {
       formDataToSend.append(`images`, image);
     });
 
@@ -266,7 +266,7 @@ export const SellForm = () => {
 
           <div className="bg-orange-50 p-4 rounded-lg space-y-4">
             <h2 className="text-xl font-bold text-orange-600">
-              Got Excess PA Gear? We're Interested!
+              Got Excess PA Gear? We&#39;re Interested!
             </h2>
             <p className="text-sm text-gray-600">
               Our specialized service caters to businesses with large quantities
@@ -279,8 +279,9 @@ export const SellForm = () => {
               We Make Selling Simple
             </h3>
             <p className="text-sm text-gray-600">
-              Don't worry about logistics. We handle everything from pickup to
-              payment. Bulk sellers get priority service and instant payments.
+              Don&#39;t worry about logistics. We handle everything from pickup
+              to payment. Bulk sellers get priority service and instant
+              payments.
             </p>
 
             <a

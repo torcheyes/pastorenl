@@ -16,7 +16,7 @@ const TestimonialCard: React.FC<Testimonial> = ({ brand, quote, author }) => {
         />
       </div>
       <p className="text-gray-700 text-sm text-center flex-grow flex items-center justify-center px-4">
-        "{quote}"
+        &quot;{quote}&quot;
       </p>
       <p className="text-center text-orange-400 text-sm mt-4">- {author}</p>
     </div>
