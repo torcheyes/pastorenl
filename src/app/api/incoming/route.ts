@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import {
   getIncomingRequests,
   createIncomingRequest,
-  deleteIncomingRequest,
   updateIncomingRequest,
 } from "@controllers/incoming.controller";
 import { authMiddleware } from "@middleware/authMiddleware";
