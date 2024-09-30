@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { toSeed } from "@utils/crypto.util";
 import { SignJWT } from "jose";
 import { nanoid } from "nanoid";
+import { cookies } from 'next/headers';
 
 const AUTH_SEED = process.env.SEED;
 
@@ -38,12 +39,12 @@ export async function POST(request: NextRequest) {
       );
 
       // Set the token as an HTTP-only cookie
-      response.cookies.set("token", token, {
+      cookies().set('token', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "strict",
-        maxAge: 60 * 60 * 24, // 24 hours
-        path: "/",
+        maxAge: 60 * 60 * 24, // 1 day
+        path: '/',
       });
 
       return response;
