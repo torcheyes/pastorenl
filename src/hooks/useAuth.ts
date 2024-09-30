@@ -23,6 +23,7 @@ export function useAuth() {
 
   const verifyToken = useCallback(async () => {
     const token = getCookie("token");
+    console.log("document.cookie:", document.cookie); // Debugging line
     console.log("Token retrieved from cookie in verifyToken:", token); // Debugging line
 
     if (token) {
