@@ -86,9 +86,18 @@ export const updateIncomingRequest = async (
 export const deleteIncomingRequest = async (id: string): Promise<void> => {
   await dbConnect();
   try {
-    await Incoming.findByIdAndDelete(id);
+    const result = await Incoming.findByIdAndDelete(id);
+    if (!result) {
+      throw new Error("Incoming request not found");
+    }
   } catch (error) {
     console.error(`Failed to delete incoming request with id ${id}:`, error);
+    if (
+      error instanceof Error &&
+      error.message === "Incoming request not found"
+    ) {
+      throw error; // Rethrow the "not found" error
+    }
     throw new Error("Failed to delete incoming request");
   }
 };

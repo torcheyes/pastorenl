@@ -80,29 +80,6 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function DELETE(req: NextRequest) {
-  const authResponse = await authMiddleware(req);
-  if (authResponse.status === 401) {
-    return authResponse;
-  }
-
-  const id = req.url.split("/").pop();
-  if (!id) {
-    return NextResponse.json({ error: "Invalid request ID" }, { status: 400 });
-  }
-
-  try {
-    await deleteIncomingRequest(id);
-    return NextResponse.json({ message: "Request deleted successfully" });
-  } catch (error) {
-    console.error("Error deleting incoming request:", error);
-    return NextResponse.json(
-      { error: "Failed to delete incoming request" },
-      { status: 500 },
-    );
-  }
-}
-
 export async function PATCH(req: NextRequest) {
   const authResponse = await authMiddleware(req);
   if (authResponse.status === 401) {

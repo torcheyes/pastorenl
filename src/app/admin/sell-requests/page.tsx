@@ -34,14 +34,20 @@ export default function AdminSellRequestsPage() {
   const handleDelete = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this sell request?")) {
       try {
+        console.log("Sending DELETE request for ID:", id);
         const response = await authFetch(`/api/incoming/${id}`, {
           method: "DELETE",
         });
+        console.log("DELETE response status:", response.status);
+
         if (!response.ok) {
-          throw new Error("Failed to delete sell request");
+          const errorData = await response.json();
+          console.error("Error data:", errorData);
+          throw new Error(errorData.error || "Failed to delete sell request");
         }
+
         alert("Sell request deleted successfully");
-        fetchRequests();
+        await fetchRequests();
       } catch (error) {
         console.error("Error deleting sell request:", error);
         alert("Failed to delete sell request");
