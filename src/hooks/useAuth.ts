@@ -1,14 +1,28 @@
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
 
 export function useAuth() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
+  const getCookie = (name: string) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop()?.split(';').shift();
+  };
+
+  const setCookie = (name: string, value: string, days: number) => {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = `${name}=${value}; expires=${expires}; path=/; ${process.env.NODE_ENV === "production" ? "secure; " : ""}SameSite=Strict`;
+  };
+
+  const deleteCookie = (name: string) => {
+    document.cookie = `${name}=; path=/; max-age=0`;
+  };
+
   const verifyToken = useCallback(async () => {
-    const token = Cookies.get("token");
+    const token = getCookie("token");
     console.log("Token retrieved from cookie in verifyToken:", token); // Debugging line
 
     if (token) {
@@ -58,12 +72,8 @@ export function useAuth() {
           console.log("Login successful");
           console.log("Token received:", data.token); // Debugging line
           if (data.token) {
-            Cookies.set("token", data.token, {
-              expires: 1,
-              secure: process.env.NODE_ENV === "production",
-              sameSite: "Strict",
-            });
-            console.log("Token set in cookie:", Cookies.get("token")); // Debugging line
+            setCookie("token", data.token, 1);
+            console.log("Token set in cookie:", getCookie("token")); // Debugging line
           } else {
             console.error("No token received from server");
           }
@@ -84,14 +94,14 @@ export function useAuth() {
   );
 
   const logout = useCallback(async () => {
-    Cookies.remove("token");
+    deleteCookie("token");
     setIsAuthenticated(false);
     await router.push("/admin/login");
   }, [router]);
 
   const authFetch = useCallback(
     async (url: string, options: RequestInit = {}) => {
-      const token = Cookies.get("token");
+      const token = getCookie("token");
       console.log("Token retrieved from cookie in authFetch:", token); // Debugging line
 
       if (!token) {
@@ -118,7 +128,7 @@ export function useAuth() {
       if (response.status === 401) {
         console.error("Authentication failed in authFetch");
         setIsAuthenticated(false);
-        Cookies.remove("token");
+        deleteCookie("token");
         router.push("/admin/login");
         throw new Error("Authentication failed");
       }
