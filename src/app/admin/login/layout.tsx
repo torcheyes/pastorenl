@@ -1,3 +1,5 @@
+import { CookiesProvider } from 'next-client-cookies/server';
+
 export default function AdminLoginLayout({
   children,
 }: {
@@ -5,7 +7,9 @@ export default function AdminLoginLayout({
 }) {
   return (
     <div className="min-h-screen flex items-center justify-center">
+      <CookiesProvider>
       {children}
+      </CookiesProvider>
     </div>
   );
 }
