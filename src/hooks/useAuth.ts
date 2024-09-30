@@ -1,29 +1,31 @@
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { getCookies } from 'next-client-cookies/server';
+import { useCookies } from 'next-client-cookies';
 
 export function useAuth() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const cookies = useCookies();
 
   const getCookie = (name: string) => {
-    const cookies = getCookies();
     return cookies.get(name);
   };
 
   const setCookie = (name: string, value: string, days: number) => {
-    const expires = new Date(Date.now() + days * 864e5).toUTCString();
-    document.cookie = `${name}=${value}; expires=${expires}; path=/; ${process.env.NODE_ENV === "production" ? "secure; " : ""}SameSite=Strict`;
+    cookies.set(name, value, {
+      expires: days,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict"
+    });
   };
 
   const deleteCookie = (name: string) => {
-    document.cookie = `${name}=; path=/; max-age=0`;
+    cookies.remove(name);
   };
 
   const verifyToken = useCallback(async () => {
     const token = getCookie("token");
-    console.log("document.cookie:", document.cookie); // Debugging line
     console.log("Token retrieved from cookie in verifyToken:", token); // Debugging line
 
     if (token) {
