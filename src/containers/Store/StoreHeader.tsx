@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { StoreCategoryButton } from "@components/Button/StoreCategoryButton";
 import { SortBySelect } from "@components/Select/SortBySelect";
+import { FaSortAmountDown, FaSortAmountUp, FaStopwatch } from "react-icons/fa";
 
 interface StoreHeaderProps {
   onCategoryChange: (category: string) => void;
@@ -28,6 +29,12 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
     "Effects",
     "Lighting",
     "Other",
+  ];
+
+  const sortOptions = [
+    { value: "latest", label: "Latest", icon: FaStopwatch },
+    { value: "price_asc", label: "Price Asc.", icon: FaSortAmountUp },
+    { value: "price_desc", label: "Price Desc.", icon: FaSortAmountDown },
   ];
 
   return (
@@ -70,16 +77,12 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
               />
             ))}
           </nav>
-          <div className="flex space-x-4">
+          <div className="flex items-center space-x-4">
             <SortBySelect
               label="Sort by"
-              options={[
-                { value: "latest", label: "Latest" },
-                { value: "price_asc", label: "Price: Low to High" },
-                { value: "price_desc", label: "Price: High to Low" },
-              ]}
+              options={sortOptions}
               value={currentSort}
-              onChange={(value) => onSortChange(value)}
+              onChange={onSortChange}
             />
           </div>
         </div>

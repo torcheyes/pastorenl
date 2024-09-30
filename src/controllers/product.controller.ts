@@ -23,6 +23,16 @@ export const getProducts = async (): Promise<IProduct[]> => {
   }
 };
 
+export const getFeaturedProducts = async (): Promise<IProduct[]> => {
+  await dbConnect();
+  try {
+    return await Product.find({ featured: true }).lean();
+  } catch (error) {
+    console.error("Failed to get featured products:", error);
+    throw new Error("Failed to get featured products");
+  }
+};
+
 export const getProductBySlug = async (
   slug: string,
 ): Promise<IProduct | null> => {

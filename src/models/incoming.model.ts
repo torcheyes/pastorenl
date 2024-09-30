@@ -1,34 +1,61 @@
 import mongoose, { Document, Model } from "mongoose";
 
 export interface IIncoming extends Document {
-  id: string;
-  product: string;
-  quantity: number;
+  _id: mongoose.Types.ObjectId;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  description: string;
+  brand: string;
+  modelName: string;
+  condition: "Bad" | "Okay" | "Refurbished" | "Good" | "Excellent" | "New";
   images: string[];
-  status: string;
-  date: Date;
+  status: "Pending" | "Reviewed" | "Quoted" | "Accepted" | "Rejected";
+  createdAt: Date;
 }
 
 const incomingSchema = new mongoose.Schema<IIncoming>({
-  product: {
+  name: {
     type: String,
     required: true,
   },
-  quantity: {
-    type: Number,
+  email: {
+    type: String,
+    required: true,
+  },
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  brand: {
+    type: String,
+    required: true,
+  },
+  modelName: {
+    type: String,
+    required: true,
+  },
+  condition: {
+    type: String,
+    enum: ["Bad", "Okay", "Refurbished", "Good", "Excellent", "New"],
     required: true,
   },
   images: {
     type: [String],
-    required: false,
+    required: true,
   },
   status: {
     type: String,
-    required: true,
+    enum: ["Pending", "Reviewed", "Quoted", "Accepted", "Rejected"],
+    default: "Pending",
   },
-  date: {
+  createdAt: {
     type: Date,
-    required: true,
+    default: Date.now,
   },
 });
 

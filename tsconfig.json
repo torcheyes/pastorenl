@@ -24,6 +24,7 @@
       "@containers/*": ["./src/containers/*"],
       "@models/*": ["./src/models/*"],
       "@hooks/*": ["./src/hooks/*"],
+      "@types": ["./src/types/types.d.ts"],
       "@utils/*": ["./src/utils/*"]
     }
   },

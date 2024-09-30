@@ -96,14 +96,14 @@ export default function StoreSlugPage() {
           <p className="text-xl mb-4">{product.brand}</p>
           <p className="text-2xl font-bold mb-4">
             {product.discount > 0 ? (
-              <>
+              <div>
                 <span className="line-through text-gray-500 mr-2">
                   {product.price.toFixed(2)}€
                 </span>
                 <span className="text-red-600">
                   {discountedPrice.toFixed(2)}€
                 </span>
-              </>
+              </div>
             ) : (
               `${product.price.toFixed(2)}€`
             )}

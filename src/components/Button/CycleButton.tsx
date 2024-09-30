@@ -27,3 +27,5 @@ export const CycleButton: React.FC<CycleButtonProps> = ({
     </button>
   );
 };
+
+// path: src/components/Button/CycleButton.tsx

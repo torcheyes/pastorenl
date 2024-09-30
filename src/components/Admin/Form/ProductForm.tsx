@@ -18,7 +18,7 @@ export function ProductForm({ initialData }: ProductFormProps) {
     slug: "",
     title: "",
     brand: "",
-    tagline: "",
+    tagline: "", // Ensure tagline is included
     description: "",
     price: 0,
     imagePath: "",

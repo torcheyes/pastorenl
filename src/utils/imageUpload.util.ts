@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 const uploadDir = path.join(process.cwd(), "public", "products");
 
 export async function uploadImages(
-  formData: FormData,
+  data: FormData | File[],
   slug: string,
 ): Promise<string[]> {
   const productDir = path.join(uploadDir, slug);
@@ -16,24 +16,37 @@ export async function uploadImages(
 
   const imagePaths: string[] = [];
 
-  console.log("FormData keys:", Array.from(formData.keys()));
-
-  // Use Array.from() to get an array of key-value pairs
-  const entries = Array.from(formData.entries());
-
-  for (const [key, value] of entries) {
-    if (value instanceof Blob && key.startsWith("image")) {
-      const buffer = Buffer.from(await value.arrayBuffer());
-      const filename = `${uuidv4()}.${value.type.split("/")[1]}`;
-      const filePath = path.join(productDir, filename);
-
-      fs.writeFileSync(filePath, buffer);
-      const imagePath = `/products/${slug}/${filename}`;
+  if (data instanceof FormData) {
+    // Handle FormData
+    const entries = Array.from(data.entries());
+    for (const [key, value] of entries) {
+      if (value instanceof Blob && key.startsWith("image")) {
+        const imagePath = await saveImage(value, productDir, slug);
+        imagePaths.push(imagePath);
+      }
+    }
+  } else {
+    // Handle File[]
+    for (const file of data) {
+      const imagePath = await saveImage(file, productDir, slug);
       imagePaths.push(imagePath);
     }
   }
 
   return imagePaths;
+}
+
+async function saveImage(
+  file: Blob,
+  productDir: string,
+  slug: string,
+): Promise<string> {
+  const buffer = Buffer.from(await file.arrayBuffer());
+  const filename = `${uuidv4()}.${file.type.split("/")[1]}`;
+  const filePath = path.join(productDir, filename);
+
+  fs.writeFileSync(filePath, buffer);
+  return `/products/${slug}/${filename}`;
 }
 
 export async function deleteImages(imagePaths: string[]): Promise<void> {

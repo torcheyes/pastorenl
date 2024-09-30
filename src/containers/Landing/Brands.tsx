@@ -6,10 +6,12 @@ import Image from "next/image";
 const brandList = [
   { name: "beyma", width: 100 },
   { name: "jbl", width: 60 },
-  { name: "aveq", width: 100 },
-  { name: "hpa", width: 100 },
-  { name: "luxonos", width: 120 },
+  { name: "dynacord", width: 100 },
+  { name: "electro-voice", width: 100 },
+  { name: "rcf", width: 100 },
   { name: "meyer", width: 100 },
+  { name: "martin", width: 100 },
+  { name: "labgruppen", width: 100 },
 ];
 
 const Brands: React.FC = () => {

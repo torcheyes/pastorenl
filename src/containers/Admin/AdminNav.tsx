@@ -3,7 +3,12 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
-import { FaChartBar, FaBox, FaSignOutAlt } from "react-icons/fa";
+import {
+  FaChartBar,
+  FaBox,
+  FaSignOutAlt,
+  FaShoppingCart,
+} from "react-icons/fa";
 
 const AdminNav = () => {
   const router = useRouter();
@@ -16,6 +21,11 @@ const AdminNav = () => {
   const navItems = [
     { href: "/admin/dashboard", label: "Insights", icon: FaChartBar },
     { href: "/admin/products", label: "Products", icon: FaBox },
+    {
+      href: "/admin/sell-requests",
+      label: "Sell Requests",
+      icon: FaShoppingCart,
+    },
   ];
 
   return (

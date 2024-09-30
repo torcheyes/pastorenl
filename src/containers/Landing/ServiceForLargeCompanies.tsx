@@ -4,7 +4,7 @@ import { GetAQuoteTodayButton } from "@components/Button/GetAQuoteTodayButton";
 
 const ServiceForLargeCompanies: React.FC = () => {
   return (
-    <div className="max-w-[1168px] mx-auto mt-[136px] mb-8">
+    <div className="max-w-[1200px] mx-auto mt-[136px] mb-8">
       <div className="flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-lg bg-white">
         <div className="w-full md:w-[389px] h-[300px] relative bg-orange-500 rounded-3xl">
           <Image

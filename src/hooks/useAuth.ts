@@ -9,6 +9,8 @@ export function useAuth() {
 
   const verifyToken = useCallback(async () => {
     const token = Cookies.get("token");
+    console.log("Token retrieved from cookie in verifyToken:", token); // Debugging line
+
     if (token) {
       try {
         const response = await fetch("/api/verify-token", {
@@ -54,14 +56,14 @@ export function useAuth() {
         const data = await response.json();
         if (response.ok && data.success) {
           console.log("Login successful");
-          console.log("Token received:", data.token); // Add this line
+          console.log("Token received:", data.token); // Debugging line
           if (data.token) {
             Cookies.set("token", data.token, {
               expires: 1,
               secure: process.env.NODE_ENV === "production",
               sameSite: "Strict",
             });
-            console.log("Token set in cookie:", Cookies.get("token")); // Add this line
+            console.log("Token set in cookie:", Cookies.get("token")); // Debugging line
           } else {
             console.error("No token received from server");
           }
@@ -90,7 +92,7 @@ export function useAuth() {
   const authFetch = useCallback(
     async (url: string, options: RequestInit = {}) => {
       const token = Cookies.get("token");
-      console.log("Token retrieved from cookie:", token); // Add this line
+      console.log("Token retrieved from cookie in authFetch:", token); // Debugging line
 
       if (!token) {
         console.error("No token found in cookie");
@@ -100,7 +102,7 @@ export function useAuth() {
       const headers = new Headers(options.headers);
       headers.set("Authorization", `Bearer ${token}`);
 
-      console.log("Authorization header set:", headers.get("Authorization")); // Add this line
+      console.log("Authorization header set:", headers.get("Authorization")); // Debugging line
 
       if (!(options.body instanceof FormData)) {
         headers.set("Content-Type", "application/json");

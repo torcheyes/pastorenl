@@ -50,4 +50,4 @@ export default function EditProductPage() {
   );
 }
 
-// path: src/app/admin/products/%5Bslug%5D/edit/page.tsx
+// path: src/app/admin/products/[∂slug]/edit/page.tsx

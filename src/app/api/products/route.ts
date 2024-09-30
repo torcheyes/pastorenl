@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import {
   createProduct,
   getProductsWithPagination,
+  getFeaturedProducts,
 } from "@controllers/product.controller";
 import { uploadImages } from "@utils/imageUpload.util";
 
@@ -13,11 +14,17 @@ export async function GET(req: NextRequest) {
   const page = parseInt(searchParams.get("page") || "1");
   const limit = parseInt(searchParams.get("limit") || "12");
   const sort = searchParams.get("sort") || "latest";
+  const featured = searchParams.get("featured") === "true";
 
   try {
-    const { products, totalPages, currentPage } =
-      await getProductsWithPagination(page, limit, sort);
-    return NextResponse.json({ products, totalPages, currentPage });
+    if (featured) {
+      const products = await getFeaturedProducts();
+      return NextResponse.json({ products });
+    } else {
+      const { products, totalPages, currentPage } =
+        await getProductsWithPagination(page, limit, sort);
+      return NextResponse.json({ products, totalPages, currentPage });
+    }
   } catch (error) {
     console.error("Error fetching products:", error);
     return NextResponse.json(
@@ -44,6 +51,7 @@ export async function POST(req: NextRequest) {
       slug,
       title: formData.get("title") as string,
       brand: formData.get("brand") as string,
+      tagline: formData.get("tagline") as string, // Ensure tagline is included
       description: formData.get("description") as string,
       price: Number(formData.get("price")),
       imagePath,
