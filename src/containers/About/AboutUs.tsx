@@ -28,7 +28,7 @@ const AboutUs: React.FC = () => {
                 without breaking the bank. From those humble beginnings, our
                 expertise grew, and so did our network. Today, what started as a
                 small operation now serves businesses in over 20 countries, but
-                we've never forgotten our roots.
+                we&#39;ve never forgotten our roots.
               </p>
             </div>
           </div>
@@ -75,8 +75,8 @@ const AboutUs: React.FC = () => {
                 second-hand audio equipment. Soon, international clients began
                 reaching out, and we expanded to serve festivals, event spaces,
                 and businesses worldwide. With over 10,000 products sold and
-                500+ businesses served, we're proud to bring our expertise to a
-                global audience.
+                500+ businesses served, we&#39;re proud to bring our expertise
+                to a global audience.
               </p>
             </div>
           </div>
