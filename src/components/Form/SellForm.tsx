@@ -93,7 +93,7 @@ export const SellForm = () => {
         />
       </div>
 
-      <h1 className="text-3xl font-bold text-center text-orange-500 mb-4">
+      <h1 className="text-3xl font-bold text-center text-brand mb-4">
         Submit Your Equipment
       </h1>
       <p className="text-center text-gray-600 mb-8">
@@ -109,7 +109,7 @@ export const SellForm = () => {
         <div className="space-y-6">
           <div className="bg-gray-100 p-4 rounded-lg h-48 flex flex-col items-center justify-center">
             <label htmlFor="imageUpload" className="cursor-pointer">
-              <span className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300">
+              <span className="bg-brand text-white px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300">
                 📷 Upload Picture
               </span>
               <input
@@ -200,7 +200,7 @@ export const SellForm = () => {
                     }
                     className={`px-3 py-1 rounded ${
                       formData.condition === condition
-                        ? "bg-orange-500 text-white"
+                        ? "bg-brand text-white"
                         : "border border-gray-300 text-gray-700"
                     }`}
                   >
@@ -302,7 +302,7 @@ export const SellForm = () => {
         <button
           type="submit"
           form="sellForm"
-          className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300"
+          className="bg-brand text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300"
         >
           ✉️ Submit
         </button>

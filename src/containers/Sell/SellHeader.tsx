@@ -4,7 +4,7 @@ const SellHeader: React.FC = () => {
   return (
     <div className="w-full py-8">
       <div className="max-w-[1200px] h-[197px] mx-auto bg-white rounded-3xl shadow-md p-8">
-        <h3 className="text-orange-500 font-semibold mb-2">
+        <h3 className="text-brand font-semibold mb-2">
           Service for Large Companies
         </h3>
         <h2 className="text-3xl font-bold mb-4">

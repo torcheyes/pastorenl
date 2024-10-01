@@ -25,7 +25,7 @@ const Landing: React.FC = () => {
           <div className="absolute inset-0 p-8 flex flex-col justify-end">
             <div className="flex justify-between items-end">
               <div className="max-w-xl">
-                <p className="text-orange-500 font-semibold mb-2">
+                <p className="text-brand font-semibold mb-2">
                   Your Audio Source
                 </p>
                 <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">

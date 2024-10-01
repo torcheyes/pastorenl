@@ -83,7 +83,7 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
               key={index}
               onClick={() => onPageChange(number)}
               className={`px-2 py-1 border rounded ${
-                currentPage === number ? "bg-orange-500 text-white" : ""
+                currentPage === number ? "bg-brand text-white" : ""
               }`}
             >
               {number}
@@ -101,7 +101,7 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
           className="disabled:opacity-50"
         />
       </div>
-      <Link href="/sell" className="bg-orange-500 text-white px-4 py-2 rounded">
+      <Link href="/sell" className="bg-brand text-white px-4 py-2 rounded">
         Submit Product
       </Link>
     </div>

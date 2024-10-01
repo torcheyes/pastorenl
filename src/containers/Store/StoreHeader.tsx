@@ -50,7 +50,7 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="flex items-center">
             <div className="relative">
-              <div className="absolute inset-0 bg-orange-500 bg-opacity-25 backdrop-blur-md rounded-md"></div>
+              <div className="absolute inset-0 bg-brand bg-opacity-25 backdrop-blur-md rounded-md"></div>
               <Image
                 src="/svg/icons/shop.svg"
                 alt="Shop Icon"

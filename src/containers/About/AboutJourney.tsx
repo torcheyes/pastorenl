@@ -7,7 +7,7 @@ const AboutJourney: React.FC = () => {
       <div className="max-w-[1200px] mx-auto bg-gradient-to-b from-orange-50 to-orange-200 rounded-3xl overflow-hidden">
         <div className="flex flex-col lg:flex-row">
           <div className="lg:w-[calc(100%-450px)] p-8 lg:p-12">
-            <h2 className="text-orange-500 font-semibold mb-6">Our Journey</h2>
+            <h2 className="text-brand font-semibold mb-6">Our Journey</h2>
             <h3 className="text-4xl font-bold mb-8">
               Two Decades of Expertise in Audio Solutions
             </h3>

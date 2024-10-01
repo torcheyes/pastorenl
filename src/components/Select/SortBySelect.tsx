@@ -28,9 +28,9 @@ export const SortBySelect: React.FC<SortBySelectProps> = ({
         <span className="mr-2 text-gray-700">{label}</span>
         <div className="flex items-center space-x-1">
           {selectedOption?.icon && (
-            <selectedOption.icon className="text-orange-500" />
+            <selectedOption.icon className="text-brand" />
           )}
-          <span className="text-orange-500 font-semibold">
+          <span className="text-brand font-semibold">
             {selectedOption?.label}
           </span>
         </div>

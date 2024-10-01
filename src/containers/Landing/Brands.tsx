@@ -35,7 +35,7 @@ const Brands: React.FC = () => {
     <section className="pt-[60px] bg-[#f8f8f8]">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-8">
-          <p className="text-orange-500 font-semibold mb-2">
+          <p className="text-brand font-semibold mb-2">
             International Reach and Brands
           </p>
           <h2 className="text-3xl font-bold mb-4">

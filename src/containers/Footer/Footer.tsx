@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
             <h2 className="text-2xl font-bold">Your Partner in</h2>
             <h2 className="text-2xl font-bold">
               Professional{" "}
-              <span className="text-orange-500">Audio Equipment</span>
+              <span className="text-brand">Audio Equipment</span>
             </h2>
           </div>
           <GetAQuoteTodayButton />

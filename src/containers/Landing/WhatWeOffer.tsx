@@ -6,7 +6,7 @@ const WhatWeOffer: React.FC = () => {
     <div className="w-full py-8">
       <div className="max-w-[1200px] h-[371px] mx-auto bg-gradient-to-r from-orange-100 to-gray-100 rounded-3xl overflow-hidden shadow-lg">
         <div className="flex flex-col items-center justify-center h-full text-center px-4">
-          <h2 className="text-sm uppercase text-orange-500 font-semibold mb-4">
+          <h2 className="text-sm uppercase text-brand font-semibold mb-4">
             What We Offer
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold mb-6 max-w-3xl">

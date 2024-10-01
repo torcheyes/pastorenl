@@ -17,7 +17,7 @@ const AboutUs: React.FC = () => {
                   height={24}
                   className="mr-2"
                 />
-                <h2 className="text-2xl font-bold text-orange-500">
+                <h2 className="text-2xl font-bold text-brand">
                   From Local Roots to Global Reach
                 </h2>
               </div>
@@ -66,7 +66,7 @@ const AboutUs: React.FC = () => {
                   height={24}
                   className="mr-2"
                 />
-                <h2 className="text-2xl font-bold text-orange-500">
+                <h2 className="text-2xl font-bold text-brand">
                   Expanding to Serve the World
                 </h2>
               </div>

@@ -91,7 +91,7 @@ const Testimonials: React.FC = () => {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`h-2 w-2 rounded-full mx-1 ${
-                index === currentIndex ? "bg-orange-500" : "bg-gray-300"
+                index === currentIndex ? "bg-brand" : "bg-gray-300"
               }`}
             />
           ))}
