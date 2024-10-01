@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
+
 import {
   FaChartBar,
   FaBox,
@@ -12,7 +11,6 @@ import {
 import { useAuth } from "@hooks/useAuth";
 
 const AdminNav = () => {
-  const router = useRouter();
   const { logout } = useAuth();
 
   const navItems = [
