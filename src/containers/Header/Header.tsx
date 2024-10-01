@@ -40,7 +40,7 @@ const Header: React.FC = () => {
               ))}
             </ul>
           </nav>
-          <ContactUsButton />
+          <ContactUsButton phoneNumber="31687887743" />
         </div>
       </div>
     </header>

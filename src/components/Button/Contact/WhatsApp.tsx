@@ -41,7 +41,7 @@ export const ChatOnWhatsAppButton: React.FC<WhatsAppButtonProps> = ({
       rel="noopener noreferrer"
       className={`cursor-pointer bg-gray-200 text-gray-700 text-lg px-2 py-1 rounded-xl hover:bg-gray-300 transition-colors duration-300 flex items-center justify-center ${className}`}
     >
-      <span className="mr-2">Chat on Whatsapp</span>
+      <span className="mr-2">Chat on WhatsApp</span>
       <Image
         src="/img/icon/whatsapp.png"
         alt="WhatsApp"

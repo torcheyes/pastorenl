@@ -3,7 +3,8 @@ import Brands from "@containers/Landing/Brands";
 import WhatWeOffer from "@containers/Landing/WhatWeOffer";
 import ServiceForLargeCompanies from "@containers/Landing/ServiceForLargeCompanies";
 import ServiceForSourcing from "@containers/Landing/ServiceForSourcing";
-import Testimonials from "@containers/Landing/Testimonials";
+import Clients from "@containers/Landing/Clients";
+// import Testimonials from "@containers/Landing/Testimonials";
 import FeaturedProducts from "@containers/Landing/FeaturedProducts";
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
       <WhatWeOffer />
       <ServiceForLargeCompanies />
       <ServiceForSourcing />
-      <Testimonials />
+      <Clients />
       <FeaturedProducts />
     </div>
   );
