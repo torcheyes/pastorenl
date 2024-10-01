@@ -45,7 +45,7 @@ const Landing: React.FC = () => {
                   <ViewOurProductsButton />
                 </div>
               </div>
-              <p className="text-white text-xl font-bold">pa/store</p>
+              <p className="text-[#282828] text-xl font-bold">pa/store</p>
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ export const CycleButton: React.FC<CycleButtonProps> = ({
   return (
     <button
       {...props}
-      className={`inline-flex items-center justify-center p-2 bg-white border border-gray-300 rounded-full hover:bg-gray-100 transition-colors duration-300 ${className}`}
+      className={`inline-flex items-center justify-center p-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors duration-300 ${className}`}
     >
       <Image
         src="/svg/undo.svg"

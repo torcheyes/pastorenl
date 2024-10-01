@@ -63,11 +63,11 @@ const Testimonials: React.FC = () => {
 
   return (
     <div className="w-full py-16 bg-gray-50">
-      <div className="w-[1200px] mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">
           What Our Clients Say
         </h2>
-        <div className="relative overflow-hidden" style={{ height: "250px" }}>
+        <div className="relative overflow-hidden" style={{ height: "216px" }}>
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{

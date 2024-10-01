@@ -11,14 +11,16 @@ export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   try {
-    const token = request.cookies.get("token")?.value;
+    const authHeader = request.headers.get("Authorization");
 
-    if (!token) {
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return NextResponse.json(
         { valid: false, error: "No token found" },
         { status: 401 },
       );
     }
+
+    const token = authHeader.split(" ")[1];
 
     try {
       await jwtVerify(token, new TextEncoder().encode(AUTH_SEED));

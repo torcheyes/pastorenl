@@ -30,8 +30,8 @@ const Header: React.FC = () => {
                     href={item.path}
                     className={`text-sm ${
                       pathname === item.path
-                        ? "text-orange-500 font-semibold"
-                        : "text-gray-600 hover:text-orange-500"
+                        ? "text-brand font-semibold"
+                        : "text-gray-600 hover:text-brand"
                     }`}
                   >
                     {item.title}

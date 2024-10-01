@@ -9,14 +9,11 @@ import {
   FaSignOutAlt,
   FaShoppingCart,
 } from "react-icons/fa";
+import { useAuth } from "@hooks/useAuth";
 
 const AdminNav = () => {
   const router = useRouter();
-
-  const handleLogout = () => {
-    Cookies.remove("token");
-    router.push("/admin/login");
-  };
+  const { logout } = useAuth();
 
   const navItems = [
     { href: "/admin/dashboard", label: "Insights", icon: FaChartBar },
@@ -45,7 +42,7 @@ const AdminNav = () => {
           ))}
         </ul>
         <button
-          onClick={handleLogout}
+          onClick={logout}
           className="flex items-center px-4 py-2 text-red-500 hover:text-red-700 transition-colors duration-200"
         >
           <FaSignOutAlt className="mr-2" />

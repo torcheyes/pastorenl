@@ -16,12 +16,12 @@ export const GetAQuoteTodayButton: React.FC<GetAQuoteTodayButtonProps> = ({
 
   return (
     <Link
-      href="/store"
+      href="/sell"
       {...props}
-      className={`inline-flex items-center justify-center text-base font-semibold px-6 py-3 rounded-full transition-colors duration-300 w-64 ${
+      className={`inline-flex items-center justify-center text-base font-semibold px-[12px] py-3 rounded-lg transition-colors duration-300 w-max-[237px] cursor-pointer ${
         isDark
-          ? "bg-gray-800 text-white hover:bg-gray-700"
-          : "bg-white text-black hover:bg-gray-100"
+          ? "bg-brand text-white hover:bg-orange-600"
+          : "bg-[#FFF] text-black hover:bg-gray-100"
       } ${className}`}
     >
       Get a Quote Today

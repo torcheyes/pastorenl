@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { toSeed } from "@utils/crypto.util";
 import { SignJWT } from "jose";
 import { nanoid } from "nanoid";
-import { cookies } from 'next/headers';
 
 const AUTH_SEED = process.env.SEED;
 
@@ -32,22 +31,11 @@ export async function POST(request: NextRequest) {
         .setExpirationTime("24h")
         .sign(new TextEncoder().encode(AUTH_SEED));
 
-      // Create a response with the success message and token
-      const response = NextResponse.json(
+      // Return the token in the response body
+      return NextResponse.json(
         { success: true, message: "Authentication successful", token },
         { status: 200 },
       );
-
-      // Set the token as an HTTP-only cookie
-      cookies().set('token', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
-        maxAge: 60 * 60 * 24, // 1 day
-        path: '/',
-      });
-
-      return response;
     } else {
       return NextResponse.json({ error: "Invalid mnemonic" }, { status: 401 });
     }

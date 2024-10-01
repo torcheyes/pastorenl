@@ -2,13 +2,18 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { GetAQuoteTodayButton } from "@components/Button/GetAQuoteTodayButton";
-import { WhatsAppButton } from "@components/Button/WhatsAppButton";
+import { ChatOnWhatsAppButton } from "@components/Button/Contact/WhatsApp";
 
 const Footer: React.FC = () => {
   return (
     <footer className="w-full pt-8 pb-4">
       <div className="max-w-[1200px] mx-auto">
-        <div className="bg-gray-800 text-white rounded-lg p-6 mb-8 flex flex-col sm:flex-row justify-between items-center">
+        <div
+          className="text-white rounded-[20px] p-6 mb-8 flex flex-col sm:flex-row justify-between items-center"
+          style={{
+            background: "linear-gradient(90deg, #1F1F1F 0%, #464646 100%)",
+          }}
+        >
           <div className="mb-4 sm:mb-0 text-center sm:text-left">
             <h2 className="text-2xl font-bold">Your Partner in</h2>
             <h2 className="text-2xl font-bold">
@@ -54,7 +59,7 @@ const Footer: React.FC = () => {
                   height={20}
                 />
               </Link>
-              <WhatsAppButton phoneNumber="31687887743" />
+              <ChatOnWhatsAppButton phoneNumber="31687887743" />
             </div>
           </div>
 

@@ -15,7 +15,7 @@ export const ViewOurProductsButton: React.FC<ViewOurProductsButtonProps> = ({
       className={`
                 inline-flex items-center justify-center
                 px-6 py-3
-                bg-gray-900 hover:bg-gray-800
+                bg-[#0000004D] hover:bg-gray-950
                 text-white font-medium
                 rounded-xl
                 transition-colors duration-300

@@ -12,6 +12,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        brand: "#FF5500",
+        secondary: "#464646",
       },
       scale: {
         "175": "1.75",

@@ -1,6 +1,5 @@
 import AdminNavWrapper from "@components/Admin/AdminNavWrapper";
 
-
 export default function AdminLayout({
   children,
 }: {
@@ -11,7 +10,6 @@ export default function AdminLayout({
       <AdminNavWrapper />
 
       <main className="max-w-[1200px] mx-auto px-4 py-8">{children}</main>
-
     </div>
   );
 }

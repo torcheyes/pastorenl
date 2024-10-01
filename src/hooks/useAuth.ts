@@ -6,31 +6,28 @@ export function useAuth() {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
-  const getCookie = (name: string): string | undefined => {
-    if (typeof window === 'undefined') {
-      return undefined;
+  const getToken = (): string | null => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("token");
     }
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop()?.split(';').shift();
+    return null;
   };
 
-  const setCookie = (name: string, value: string, days: number) => {
-    if (typeof window !== 'undefined') {
-      const expires = new Date(Date.now() + days * 864e5).toUTCString();
-      document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; ${process.env.NODE_ENV === "production" ? "secure; " : ""}SameSite=Strict`;
+  const setToken = (token: string) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("token", token);
     }
   };
 
-  const deleteCookie = (name: string) => {
-    if (typeof window !== 'undefined') {
-      document.cookie = `${name}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+  const removeToken = () => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("token");
     }
   };
 
   const verifyToken = useCallback(async () => {
-    const token = getCookie("token");
-    console.log("Token retrieved from cookie in verifyToken:", token); // Debugging line
+    const token = getToken();
+    console.log("Token retrieved from localStorage in verifyToken:", token); // Debugging line
 
     if (token) {
       try {
@@ -39,7 +36,6 @@ export function useAuth() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-          credentials: "include",
         });
         const data = await response.json();
         setIsAuthenticated(data.valid);
@@ -72,15 +68,14 @@ export function useAuth() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ mnemonic }),
-          credentials: "include",
         });
         const data = await response.json();
         if (response.ok && data.success) {
           console.log("Login successful");
           console.log("Token received:", data.token); // Debugging line
           if (data.token) {
-            setCookie("token", data.token, 1);
-            console.log("Token set in cookie:", getCookie("token")); // Debugging line
+            setToken(data.token);
+            console.log("Token set in localStorage:", getToken()); // Debugging line
           } else {
             console.error("No token received from server");
           }
@@ -101,18 +96,18 @@ export function useAuth() {
   );
 
   const logout = useCallback(async () => {
-    deleteCookie("token");
+    removeToken();
     setIsAuthenticated(false);
     await router.push("/admin/login");
   }, [router]);
 
   const authFetch = useCallback(
     async (url: string, options: RequestInit = {}) => {
-      const token = getCookie("token");
-      console.log("Token retrieved from cookie in authFetch:", token); // Debugging line
+      const token = getToken();
+      console.log("Token retrieved from localStorage in authFetch:", token); // Debugging line
 
       if (!token) {
-        console.error("No token found in cookie");
+        console.error("No token found in localStorage");
         throw new Error("No authentication token found");
       }
 
@@ -128,14 +123,13 @@ export function useAuth() {
       const authOptions: RequestInit = {
         ...options,
         headers,
-        credentials: "include",
       };
 
       const response = await fetch(url, authOptions);
       if (response.status === 401) {
         console.error("Authentication failed in authFetch");
         setIsAuthenticated(false);
-        deleteCookie("token");
+        removeToken();
         router.push("/admin/login");
         throw new Error("Authentication failed");
       }
