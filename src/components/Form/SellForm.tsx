@@ -36,9 +36,9 @@ export const SellForm = () => {
     setImages((prevImages) => [...prevImages, ...files]);
   };
 
-  const handleRemoveImage = (index: number) => {
-    setImages((prevImages) => prevImages.filter((_, i) => i !== index));
-  };
+  //const handleRemoveImage = (index: number) => {
+   // setImages((prevImages) => prevImages.filter((_, i) => i !== index));
+//  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
