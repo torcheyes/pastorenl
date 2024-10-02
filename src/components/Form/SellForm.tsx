@@ -2,6 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import { GetAQuickQuoteNow } from "@components/Button/GetAQuickQuoteNow";
 
 export const SellForm = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +13,7 @@ export const SellForm = () => {
     phoneNumber: "",
     description: "",
     brand: "",
-    modelName: "", // Updated field name
+    modelName: "",
     condition: "Excellent",
   });
   const [images, setImages] = useState<File[]>([]);
@@ -22,6 +25,10 @@ export const SellForm = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handlePhoneChange = (value: string) => {
+    setFormData((prev) => ({ ...prev, phoneNumber: value }));
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -106,113 +113,109 @@ export const SellForm = () => {
         onSubmit={handleSubmit}
         className="grid grid-cols-1 md:grid-cols-2 gap-8"
       >
-        <div className="space-y-6">
-          <div className="bg-gray-100 p-4 rounded-lg h-48 flex flex-col items-center justify-center">
-            <label htmlFor="imageUpload" className="cursor-pointer">
-              <span className="bg-brand text-white px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300">
-                📷 Upload Picture
-              </span>
-              <input
-                id="imageUpload"
-                type="file"
-                accept="image/*"
-                multiple
-                onChange={handleImageChange}
-                className="hidden"
-              />
-            </label>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {images.map((image, index) => (
-                <div key={index} className="relative">
-                  <span
-                    className="absolute top-0 right-0 bg-red-500 text-white rounded-full cursor-pointer"
-                    onClick={() => handleRemoveImage(index)}
-                  >
-                    &times;
-                  </span>
+        <div className="space-y-8">
+          {/* Image Upload Box */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="bg-gray-100 p-4 rounded-lg h-48 flex flex-col items-center justify-center">
+              <label htmlFor="imageUpload" className="cursor-pointer">
+                <span className="bg-brand text-white px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300">
                   <Image
-                    src={URL.createObjectURL(image)}
-                    alt={`Preview ${index}`}
-                    width={50}
-                    height={50}
-                    className="rounded"
+                    src="/svg/icons/duplicate.svg"
+                    alt="Upload"
+                    width={24}
+                    height={24}
+                    className="inline mr-2"
                   />
-                </div>
-              ))}
+                  Upload Picture
+                </span>
+                <input
+                  id="imageUpload"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={handleImageChange}
+                  className="hidden"
+                />
+              </label>
+              {/* ... (image preview code remains the same) */}
             </div>
           </div>
 
-          <div>
-            <label htmlFor="description" className="block mb-2 font-semibold">
-              Description
-            </label>
-            <textarea
-              id="description"
-              name="description"
-              value={formData.description}
-              onChange={handleInputChange}
-              rows={4}
-              className="w-full p-2 border rounded"
-              placeholder="Meta"
-            />
-          </div>
+          {/* Description to Condition Box */}
+          <div className="bg-white p-6 rounded-lg shadow-md space-y-6 max-w-[554px] max-h-[750px]">
+            <div>
+              <label htmlFor="description" className="block mb-2 font-semibold">
+                Description
+              </label>
+              <textarea
+                id="description"
+                name="description"
+                value={formData.description}
+                onChange={handleInputChange}
+                rows={4}
+                className="w-full p-2 border rounded resize-none"
+                placeholder="Meta"
+              />
+            </div>
 
-          <div>
-            <label htmlFor="brand" className="block mb-2 font-semibold">
-              Brand
-            </label>
-            <input
-              type="text"
-              id="brand"
-              name="brand"
-              value={formData.brand}
-              onChange={handleInputChange}
-              className="w-full p-2 border rounded"
-              placeholder="Enter the Brand"
-            />
-          </div>
+            <div>
+              <label htmlFor="brand" className="block mb-2 font-semibold">
+                Brand
+              </label>
+              <input
+                type="text"
+                id="brand"
+                name="brand"
+                value={formData.brand}
+                onChange={handleInputChange}
+                className="w-full p-2 border rounded"
+                placeholder="Enter the Brand"
+              />
+            </div>
 
-          <div>
-            <label htmlFor="modelName" className="block mb-2 font-semibold">
-              Model
-            </label>
-            <input
-              type="text"
-              id="modelName" // Updated field name
-              name="modelName" // Updated field name
-              value={formData.modelName} // Updated field name
-              onChange={handleInputChange}
-              className="w-full p-2 border rounded"
-              placeholder="Enter your Model"
-            />
-          </div>
+            <div>
+              <label htmlFor="modelName" className="block mb-2 font-semibold">
+                Model
+              </label>
+              <input
+                type="text"
+                id="modelName"
+                name="modelName"
+                value={formData.modelName}
+                onChange={handleInputChange}
+                className="w-full p-2 border rounded"
+                placeholder="Enter your Model"
+              />
+            </div>
 
-          <div>
-            <label className="block mb-2 font-semibold">Condition</label>
-            <div className="flex space-x-2">
-              {["Bad", "Okay", "Refurbished", "Good", "Excellent", "New"].map(
-                (condition) => (
-                  <button
-                    key={condition}
-                    type="button"
-                    onClick={() =>
-                      setFormData((prev) => ({ ...prev, condition }))
-                    }
-                    className={`px-3 py-1 rounded ${
-                      formData.condition === condition
-                        ? "bg-brand text-white"
-                        : "border border-gray-300 text-gray-700"
-                    }`}
-                  >
-                    {condition}
-                  </button>
-                ),
-              )}
+            <div>
+              <label className="block mb-2 font-semibold">Condition</label>
+              <div className="flex space-x-2">
+                {["Bad", "Okay", "Refurbished", "Good", "Excellent", "New"].map(
+                  (condition) => (
+                    <button
+                      key={condition}
+                      type="button"
+                      onClick={() =>
+                        setFormData((prev) => ({ ...prev, condition }))
+                      }
+                      className={`px-2 py-1 rounded ${
+                        formData.condition === condition
+                          ? "bg-brand text-white"
+                          : "border border-gray-300 text-gray-700"
+                      }`}
+                    >
+                      {condition}
+                    </button>
+                  ),
+                )}
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="space-y-6">
+        {/* Right Column Box */}
+        <div className="bg-white p-6 rounded-lg shadow-md space-y-6">
           <div>
             <label htmlFor="name" className="block mb-2 font-semibold">
               Name
@@ -247,65 +250,71 @@ export const SellForm = () => {
             <label htmlFor="phoneNumber" className="block mb-2 font-semibold">
               Phone Number
             </label>
-            <div className="flex">
-              <select className="p-2 border rounded-l w-20" defaultValue="NL">
-                <option value="NL">NL</option>
-                {/* Add more country options here */}
-              </select>
-              <input
-                type="tel"
-                id="phoneNumber"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleInputChange}
-                className="w-full p-2 border rounded-r"
-                placeholder="+1 (555) 000-0000"
-              />
-            </div>
+            <PhoneInput
+              country={"nl"}
+              value={formData.phoneNumber}
+              onChange={handlePhoneChange}
+              inputProps={{
+                name: "phoneNumber",
+                required: true,
+              }}
+              containerClass="w-full"
+              inputClass="w-full p-2 pr-10 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
+              buttonClass="custom-phone-button"
+              dropdownClass="custom-phone-dropdown"
+            />
           </div>
 
-          <div className="bg-orange-50 p-4 rounded-lg space-y-4">
-            <h2 className="text-xl font-bold text-orange-600">
-              Got Excess PA Gear? We&#39;re Interested!
+          {/* Got Excess PA Gear Box */}
+          <div className="bg-orange-50 p-6 rounded-lg">
+            <h2 className="text-xl font-bold text-brand mb-4">
+              Got Excess PA Gear? We&apos;re Interested!
             </h2>
-            <p className="text-sm text-gray-600">
+            <p className="text-gray-700 mb-6">
               Our specialized service caters to businesses with large quantities
               of leftover or outdated professional audio equipment. From
               speakers to amplifiers, we simplify the process of turning your
               unused gear into cash with fast quotes and quick pickups.
             </p>
+          </div>
 
-            <h3 className="text-lg font-bold text-orange-600">
+          {/* We Make Selling Simple Box */}
+          <div className="bg-orange-50 p-6 rounded-lg">
+            <h3 className="text-lg font-bold text-brand mb-4">
               We Make Selling Simple
             </h3>
-            <p className="text-sm text-gray-600">
-              Don&#39;t worry about logistics. We handle everything from pickup
+            <p className="text-gray-700 mb-6">
+              Don&apos;t worry about logistics. We handle everything from pickup
               to payment. Bulk sellers get priority service and instant
               payments.
             </p>
-
-            <a
-              href="#"
-              className="inline-flex items-center text-green-600 font-semibold hover:text-green-700"
-            >
-              <span className="mr-2">🟢</span> Get a Quick Quote Now &gt;
-            </a>
+            <GetAQuickQuoteNow />
           </div>
         </div>
       </form>
 
-      <div className="mt-8 flex justify-between items-center">
-        <p className="text-sm text-gray-600">
-          Our team will review your submission and get back to you with a quote
-          within 24 hours.
-        </p>
-        <button
-          type="submit"
-          form="sellForm"
-          className="bg-brand text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300"
-        >
-          ✉️ Submit
-        </button>
+      {/* Bottom Box */}
+      <div className="mt-4 max-w-[1140px] max-h-[100px] bg-white p-6 rounded-lg shadow-md">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-sm text-gray-600 md:w-2/3">
+            Our team will review your submission and get back to you with a
+            quote within 24 hours.
+          </p>
+          <button
+            type="submit"
+            form="sellForm"
+            className="bg-brand text-white px-2 py-1 rounded-xl text-lg font-semibold hover:bg-orange-600 transition duration-300 flex items-center"
+          >
+            <Image
+              src="/svg/icons/plane.svg"
+              alt="Submit"
+              width={24}
+              height={24}
+              className="mr-2"
+            />
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

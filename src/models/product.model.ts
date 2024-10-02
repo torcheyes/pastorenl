@@ -25,7 +25,7 @@ export interface IProduct extends Document {
   whatsInTheBox: string[];
   negotiable: boolean;
   category: string;
-  discount: number;
+  sold: boolean;
   featured: boolean;
 }
 
@@ -96,12 +96,10 @@ const productSchema = new mongoose.Schema<IProduct>({
     type: String,
     required: true,
   },
-  discount: {
-    type: Number,
+  sold: {
+    type: Boolean,
     required: true,
-    min: 0,
-    max: 99,
-    default: 0,
+    default: false,
   },
   featured: {
     type: Boolean,

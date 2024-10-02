@@ -155,6 +155,7 @@ export const getProductsWithPagination = async (
   page: number = 1,
   limit: number = 12,
   sort: string = "latest",
+  category?: string,
 ): Promise<{
   products: IProduct[];
   totalPages: number;
@@ -162,7 +163,12 @@ export const getProductsWithPagination = async (
 }> => {
   await dbConnect();
   try {
-    const totalProducts = await Product.countDocuments();
+    let query = {};
+    if (category) {
+      query = { category };
+    }
+
+    const totalProducts = await Product.countDocuments(query);
     const totalPages = Math.ceil(totalProducts / limit);
 
     let sortOption = {};
@@ -179,7 +185,7 @@ export const getProductsWithPagination = async (
         break;
     }
 
-    const products = await Product.find()
+    const products = await Product.find(query)
       .sort(sortOption)
       .skip((page - 1) * limit)
       .limit(limit)
@@ -205,16 +211,6 @@ export const getProductsByBrand = async (
   } catch (error) {
     console.error(`Failed to get products by brand ${brand}:`, error);
     throw new Error("Failed to get products by brand");
-  }
-};
-
-export const getProductsWithDiscount = async (): Promise<IProduct[]> => {
-  await dbConnect();
-  try {
-    return await Product.find({ discount: { $gt: 0 } }).lean();
-  } catch (error) {
-    console.error("Failed to get products with discount:", error);
-    throw new Error("Failed to get products with discount");
   }
 };
 

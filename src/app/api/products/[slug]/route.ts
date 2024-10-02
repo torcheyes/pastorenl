@@ -66,7 +66,7 @@ export async function PUT(
       whatsInTheBox: JSON.parse(formData.get("whatsInTheBox") as string),
       negotiable: formData.get("negotiable") === "true",
       category: formData.get("category") as string,
-      discount: Number(formData.get("discount")),
+      sold: formData.get("sold") === "true",
       featured: formData.get("featured") === "true",
     };
 

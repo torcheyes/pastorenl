@@ -20,6 +20,9 @@ const config: Config = {
         "200": "2",
         "250": "2.5",
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
     },
   },
   plugins: [],

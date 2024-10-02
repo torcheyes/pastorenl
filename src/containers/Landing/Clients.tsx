@@ -24,7 +24,7 @@ const ParallaxLogos: React.FC<ParallaxLogosProps> = ({
 
   const x = useTransform(baseX, (v) => `${wrap(-50, 0, v)}%`);
 
-  useAnimationFrame((t, delta) => {
+  useAnimationFrame((_, delta) => {
     const moveBy = directionFactor.current * baseVelocity * (delta / 1000);
     baseX.set(baseX.get() + moveBy);
   });
@@ -68,7 +68,7 @@ const Clients: React.FC = () => {
   return (
     <div className="relative py-16 overflow-hidden bg-gray-50">
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-        <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-100 to-transparent opacity-75" />
+        <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-100 to-transparent opacity-75 fixed" />
       </div>
       <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">

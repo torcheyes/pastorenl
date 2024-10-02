@@ -4,15 +4,19 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { IProduct } from "@models/product.model";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import ReactImageMagnify from "react-image-magnify";
+import { CallButton } from "@components/Button/Contact/Call";
+import { EmailButton } from "@components/Button/Contact/Email";
+import { WhatsAppButton } from "@components/Button/Contact/WhatsApp";
+import { FaCheckCircle, FaTruck, FaPlus, FaMinus } from "react-icons/fa";
 
 export default function StoreSlugPage() {
   const { slug } = useParams();
   const [product, setProduct] = useState<IProduct | null>(null);
   const [activeImage, setActiveImage] = useState<string>("");
-  const [expandedSection, setExpandedSection] = useState<string | null>(
+  const [expandedSections, setExpandedSections] = useState<string[]>([
     "description",
-  );
+  ]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -38,10 +42,12 @@ export default function StoreSlugPage() {
     return <div>Loading...</div>;
   }
 
-  const discountedPrice = product.price * (1 - product.discount / 100);
-
   const toggleSection = (section: string) => {
-    setExpandedSection(expandedSection === section ? null : section);
+    setExpandedSections((prev) =>
+      prev.includes(section)
+        ? prev.filter((s) => s !== section)
+        : [...prev, section],
+    );
   };
 
   const AccordionSection = ({
@@ -57,9 +63,15 @@ export default function StoreSlugPage() {
         onClick={() => toggleSection(title)}
       >
         <span className="text-lg font-semibold">{title}</span>
-        {expandedSection === title ? <FaChevronUp /> : <FaChevronDown />}
+        {expandedSections.includes(title) ? (
+          <FaMinus className="text-brand" />
+        ) : (
+          <FaPlus className="text-gray-400" />
+        )}
       </button>
-      {expandedSection === title && <div className="px-6 pb-4">{content}</div>}
+      {expandedSections.includes(title) && (
+        <div className="px-6 pb-4 text-gray-600">{content}</div>
+      )}
     </div>
   );
 
@@ -68,12 +80,19 @@ export default function StoreSlugPage() {
       <div className="flex flex-col lg:flex-row mb-8">
         {/* Image Gallery */}
         <div className="lg:w-1/2 mb-8 lg:mb-0">
-          <Image
-            src={activeImage}
-            alt={product.title}
-            width={600}
-            height={600}
-            className="w-full h-auto"
+          <ReactImageMagnify
+            {...{
+              smallImage: {
+                alt: product.title,
+                isFluidWidth: true,
+                src: activeImage,
+              },
+              largeImage: {
+                src: activeImage,
+                width: 1200,
+                height: 1200,
+              },
+            }}
           />
           <div className="flex mt-4 overflow-x-auto">
             {product.imagePath.split(",").map((img, index) => (
@@ -92,30 +111,59 @@ export default function StoreSlugPage() {
 
         {/* Product Details */}
         <div className="lg:w-1/2 lg:pl-8">
+          <p className="text-xl mb-4 text-brand">{product.brand}</p>
           <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
-          <p className="text-xl mb-4">{product.brand}</p>
-          <p className="text-2xl font-bold mb-4">
-            {product.discount > 0 ? (
+
+          {/* Info Cards */}
+          <div className="mb-6 space-y-4">
+            <div className="flex items-center bg-orange-50 p-4 rounded-lg">
+              <FaCheckCircle className="text-brand mr-4 text-xl" />
+              <span className="text-gray-700">
+                All products are tested and checked before shipment.
+              </span>
+            </div>
+            <div className="flex items-center bg-orange-50 p-4 rounded-lg">
+              <FaTruck className="text-brand mr-4 text-xl" />
               <div>
-                <span className="line-through text-gray-500 mr-2">
-                  {product.price.toFixed(2)}€
+                <span className="text-gray-700">
+                  Worldwide shipping available.
                 </span>
-                <span className="text-red-600">
-                  {discountedPrice.toFixed(2)}€
-                </span>
+                <button className="block text-brand font-semibold hover:underline mt-1">
+                  Contact us for a quote &gt;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <hr className="my-6 border-gray-200" />
+
+          {/* Price and Contact Buttons */}
+          <div className="flex items-center justify-between">
+            <p className="text-2xl font-bold">{`${product.price.toFixed(2)}€`}</p>
+            {product.sold ? (
+              <div className="bg-red-100 text-red-600 px-4 py-2 rounded-full font-bold">
+                SOLD
               </div>
             ) : (
-              `${product.price.toFixed(2)}€`
+              <div className="flex space-x-4">
+                <WhatsAppButton
+                  phoneNumber="31687887743"
+                  className="bg-green-500 text-white px-4 py-2 rounded"
+                />
+                <EmailButton className="bg-gray-200 text-gray-700 px-4 py-2 rounded" />
+                <CallButton className="bg-gray-200 text-gray-700 px-4 py-2 rounded" />
+              </div>
             )}
-          </p>
-          {product.negotiable && (
-            <p className="text-green-600 mb-4">Price is negotiable</p>
+          </div>
+          {product.negotiable && !product.sold && (
+            <p className="text-green-600 mt-2">Price is negotiable</p>
           )}
         </div>
       </div>
 
       {/* Accordion Sections */}
-      <div className="border-t border-gray-200">
+      <div className="mt-8 bg-white rounded-lg shadow-md">
         <AccordionSection
           title="Description"
           content={<p>{product.description}</p>}
@@ -123,11 +171,11 @@ export default function StoreSlugPage() {
         <AccordionSection
           title="General Specifications"
           content={
-            <ul>
+            <ul className="space-y-2">
               {product.specifications.map((spec, index) => (
-                <li key={index} className="mb-1">
-                  <span className="font-semibold">{spec.spec}:</span>{" "}
-                  {spec.value}
+                <li key={index} className="flex justify-between">
+                  <span className="text-gray-700">{spec.spec}</span>
+                  <span className="font-semibold">{spec.value}</span>
                 </li>
               ))}
             </ul>

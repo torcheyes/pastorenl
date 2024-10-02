@@ -18,7 +18,7 @@ export function ProductForm({ initialData }: ProductFormProps) {
     slug: "",
     title: "",
     brand: "",
-    tagline: "", // Ensure tagline is included
+    tagline: "",
     description: "",
     price: 0,
     imagePath: "",
@@ -28,7 +28,7 @@ export function ProductForm({ initialData }: ProductFormProps) {
     whatsInTheBox: [],
     negotiable: false,
     category: "",
-    discount: 0,
+    sold: false,
     featured: false,
   });
   const [images, setImages] = useState<File[]>([]);
@@ -260,30 +260,24 @@ export function ProductForm({ initialData }: ProductFormProps) {
         <label htmlFor="category" className="block mb-1">
           Category:
         </label>
-        <input
-          type="text"
+        <select
           id="category"
           name="category"
           value={productData.category}
           onChange={handleInputChange}
           required
           className="w-full p-2 border rounded"
-        />
-      </div>
-      <div>
-        <label htmlFor="discount" className="block mb-1">
-          Discount (%):
-        </label>
-        <input
-          type="number"
-          id="discount"
-          name="discount"
-          value={productData.discount}
-          onChange={handleInputChange}
-          min="0"
-          max="99"
-          className="w-full p-2 border rounded"
-        />
+        >
+          <option value="">Select a category</option>
+          <option value="Speakers">Speakers</option>
+          <option value="Amplifiers">Amplifiers</option>
+          <option value="Mixing Panels">Mixing Panels</option>
+          <option value="Processors">Processors</option>
+          <option value="Equalizers">Equalizers</option>
+          <option value="Effects">Effects</option>
+          <option value="Lighting">Lighting</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
       <div>
         <label className="flex items-center">
@@ -295,6 +289,19 @@ export function ProductForm({ initialData }: ProductFormProps) {
             className="mr-2"
           />
           Negotiable
+        </label>
+      </div>
+      {/* Sold checkbox */}
+      <div>
+        <label className="flex items-center">
+          <input
+            type="checkbox"
+            name="sold"
+            checked={productData.sold}
+            onChange={handleCheckboxChange}
+            className="mr-2"
+          />
+          Sold
         </label>
       </div>
       {/* Featured checkbox */}

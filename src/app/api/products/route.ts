@@ -15,6 +15,7 @@ export async function GET(req: NextRequest) {
   const limit = parseInt(searchParams.get("limit") || "12");
   const sort = searchParams.get("sort") || "latest";
   const featured = searchParams.get("featured") === "true";
+  const category = searchParams.get("category") || undefined;
 
   try {
     if (featured) {
@@ -22,7 +23,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ products });
     } else {
       const { products, totalPages, currentPage } =
-        await getProductsWithPagination(page, limit, sort);
+        await getProductsWithPagination(page, limit, sort, category);
       return NextResponse.json({ products, totalPages, currentPage });
     }
   } catch (error) {
@@ -61,7 +62,8 @@ export async function POST(req: NextRequest) {
       whatsInTheBox: JSON.parse(formData.get("whatsInTheBox") as string),
       negotiable: formData.get("negotiable") === "true",
       category: formData.get("category") as string,
-      discount: Number(formData.get("discount")),
+      sold: formData.get("sold") === "true",
+      featured: formData.get("featured") === "true",
     };
 
     const newProduct = await createProduct(productData);

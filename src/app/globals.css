@@ -37,3 +37,23 @@ body {
   display: block;
   margin-right: 30px;
 }
+
+.react-tel-input .form-control {
+  width: 100% !important;
+  height: auto !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.react-tel-input .selected-flag {
+  background-color: transparent !important;
+}
+
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+  background-color: transparent !important;
+}
+
+.react-tel-input .country-list {
+  margin-top: 0 !important;
+}

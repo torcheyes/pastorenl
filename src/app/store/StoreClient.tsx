@@ -15,13 +15,15 @@ export default function StoreClient() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
   const [sortBy, setSortBy] = useState("latest");
-  const [currentCategory, setCurrentCategory] = useState("All");
+  const [currentCategory, setCurrentCategory] = useState<string | undefined>(
+    undefined,
+  );
 
   useEffect(() => {
     const page = Number(searchParams.get("page")) || 1;
-    const limit = Number(searchParams.get("limit")) || 12;
+    const limit = Number(searchParams.get("limit")) || 24;
     const sort = searchParams.get("sort") || "latest";
-    const category = searchParams.get("category") || "All";
+    const category = searchParams.get("category") || undefined;
 
     setCurrentPage(page);
     setItemsPerPage(limit);
@@ -35,12 +37,14 @@ export default function StoreClient() {
     page: number,
     limit: number,
     sort: string,
-    category: string,
+    category?: string,
   ) => {
     try {
-      const response = await fetch(
-        `/api/products?page=${page}&limit=${limit}&sort=${sort}&category=${category}`,
-      );
+      let url = `/api/products?page=${page}&limit=${limit}&sort=${sort}`;
+      if (category) {
+        url += `&category=${category}`;
+      }
+      const response = await fetch(url);
       const data = await response.json();
       setProducts(data.products);
       setTotalPages(data.totalPages);
@@ -50,27 +54,39 @@ export default function StoreClient() {
   };
 
   const handlePageChange = (page: number) => {
-    router.push(
-      `/store?page=${page}&limit=${itemsPerPage}&sort=${sortBy}&category=${currentCategory}`,
-    );
+    const url = new URL("/store", window.location.origin);
+    url.searchParams.set("page", page.toString());
+    url.searchParams.set("limit", itemsPerPage.toString());
+    url.searchParams.set("sort", sortBy);
+    if (currentCategory) url.searchParams.set("category", currentCategory);
+    router.push(url.pathname + url.search);
   };
 
   const handleItemsPerPageChange = (limit: number) => {
-    router.push(
-      `/store?page=1&limit=${limit}&sort=${sortBy}&category=${currentCategory}`,
-    );
+    const url = new URL("/store", window.location.origin);
+    url.searchParams.set("page", "1");
+    url.searchParams.set("limit", limit.toString());
+    url.searchParams.set("sort", sortBy);
+    if (currentCategory) url.searchParams.set("category", currentCategory);
+    router.push(url.pathname + url.search);
   };
 
   const handleSortChange = (sort: string) => {
-    router.push(
-      `/store?page=1&limit=${itemsPerPage}&sort=${sort}&category=${currentCategory}`,
-    );
+    const url = new URL("/store", window.location.origin);
+    url.searchParams.set("page", "1");
+    url.searchParams.set("limit", itemsPerPage.toString());
+    url.searchParams.set("sort", sort);
+    if (currentCategory) url.searchParams.set("category", currentCategory);
+    router.push(url.pathname + url.search);
   };
 
-  const handleCategoryChange = (category: string) => {
-    router.push(
-      `/store?page=1&limit=${itemsPerPage}&sort=${sortBy}&category=${category}`,
-    );
+  const handleCategoryChange = (category: string | undefined) => {
+    const url = new URL("/store", window.location.origin);
+    url.searchParams.set("page", "1");
+    url.searchParams.set("limit", itemsPerPage.toString());
+    url.searchParams.set("sort", sortBy);
+    if (category) url.searchParams.set("category", category);
+    router.push(url.pathname + url.search);
   };
 
   return (

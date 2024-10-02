@@ -14,10 +14,10 @@ export const StoreCategoryButton: React.FC<StoreCategoryButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 rounded-full ${
+      className={`px-3 py-1.5 text-sm font-medium rounded-full transition-colors duration-200 ${
         isActive
           ? "bg-brand text-white"
-          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
       }`}
     >
       {category}
