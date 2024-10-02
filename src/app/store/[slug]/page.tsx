@@ -113,6 +113,7 @@ export default function StoreSlugPage() {
         <div className="lg:w-1/2 lg:pl-8">
           <p className="text-xl mb-4 text-brand">{product.brand}</p>
           <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
+          <p className="text-xl mb-4 ">{product.tagline}</p>
 
           {/* Info Cards */}
           <div className="mb-6 space-y-4">
