@@ -27,7 +27,6 @@ export function useAuth() {
 
   const verifyToken = useCallback(async () => {
     const token = getToken();
-    console.log("Token retrieved from localStorage in verifyToken:", token); // Debugging line
 
     if (token) {
       try {
