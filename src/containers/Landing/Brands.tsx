@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { ParallaxLogos } from "@components/ParallaxLogos";
 
 import { Beyma } from "@components/svg/brands/beyma";
