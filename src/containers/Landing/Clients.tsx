@@ -1,69 +1,24 @@
 "use client";
 
-import React, { useRef } from "react";
-import {
-  motion,
-  useAnimationFrame,
-  useMotionValue,
-  useTransform,
-} from "framer-motion";
-import { wrap } from "@motionone/utils";
-import Image from "next/image";
+import React from "react";
+import { ParallaxLogos } from "@components/ParallaxLogos";
 
-interface ParallaxLogosProps {
-  logos: { src: string; alt: string }[];
-  baseVelocity: number;
-}
+import { AVEQ } from "@components/svg/clients/aveq";
+import { DEP } from "@components/svg/clients/dep";
+import { Luxonos } from "@components/svg/clients/luxonos";
+import { HPA } from "@components/svg/clients/hpa";
+import { Roodhof } from "@components/svg/clients/roodhof";
 
-const ParallaxLogos: React.FC<ParallaxLogosProps> = ({
-  logos,
-  baseVelocity,
-}) => {
-  const baseX = useMotionValue(0);
-  const directionFactor = useRef<number>(1);
-
-  const x = useTransform(baseX, (v) => `${wrap(-50, 0, v)}%`);
-
-  useAnimationFrame((_, delta) => {
-    const moveBy = directionFactor.current * baseVelocity * (delta / 1000);
-    baseX.set(baseX.get() + moveBy);
-  });
-
-  return (
-    <div className="overflow-hidden whitespace-nowrap">
-      <motion.div className="flex" style={{ x }}>
-        {[...logos, ...logos, ...logos].map((logo, index) => (
-          <div key={index} className="flex-shrink-0 mx-8">
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              className="w-auto h-8 object-contain"
-              width={60}
-              height={60}
-            />
-          </div>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
+import { SL } from "@components/svg/clients/sl";
+import { Imagination } from "@components/svg/clients/imagination";
+import { PRG } from "@components/svg/clients/prg";
+import { Eventus } from "@components/svg/clients/eventus";
+import { Biiz } from "@components/svg/clients/biiz";
 
 const Clients: React.FC = () => {
-  const topLogos = [
-    { src: "/svg/brands/testimonials/aveq.svg", alt: "AVEQ" },
-    { src: "/svg/brands/testimonials/dep.svg", alt: "DEP" },
-    { src: "/svg/brands/testimonials/luxonos.svg", alt: "Luxonos" },
-    { src: "/svg/brands/testimonials/hpa.svg", alt: "HPA" },
-    { src: "/svg/brands/testimonials/roodhof.svg", alt: "Roodhof" },
-  ];
+  const topLogos = [<AVEQ />, <DEP />, <Luxonos />, <HPA />, <Roodhof />];
 
-  const bottomLogos = [
-    { src: "/svg/brands/testimonials/sl.svg", alt: "SL" },
-    { src: "/svg/brands/testimonials/imagination.svg", alt: "Imagination" },
-    { src: "/svg/brands/testimonials/prg.svg", alt: "PRG" },
-    { src: "/svg/brands/testimonials/eventus.svg", alt: "Eventus" },
-    { src: "/svg/brands/testimonials/biiz.svg", alt: "Biiz" },
-  ];
+  const bottomLogos = [<SL />, <Imagination />, <PRG />, <Eventus />, <Biiz />];
 
   return (
     <div className="relative py-16 overflow-hidden bg-gray-50">
@@ -80,8 +35,8 @@ const Clients: React.FC = () => {
           </p>
         </div>
         <div className="space-y-16">
-          <ParallaxLogos logos={topLogos} baseVelocity={-10} />
-          <ParallaxLogos logos={bottomLogos} baseVelocity={10} />
+          <ParallaxLogos logos={topLogos} baseVelocity={1} />
+          <ParallaxLogos logos={bottomLogos} baseVelocity={-1} />
         </div>
       </div>
     </div>

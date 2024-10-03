@@ -55,7 +55,7 @@ const FeaturedProducts: React.FC = () => {
           </div>
         </div>
         <div className="relative">
-          <div className="flex overflow-hidden">
+          <div className="flex">
             {getVisibleProducts().map((product) => (
               <div key={product?.slug} className="w-1/3 px-2">
                 {product && <ProductCard product={product} />}

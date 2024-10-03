@@ -63,11 +63,19 @@ export default function StoreSlugPage() {
         onClick={() => toggleSection(title)}
       >
         <span className="text-lg font-semibold">{title}</span>
-        {expandedSections.includes(title) ? (
-          <FaMinus className="text-brand" />
-        ) : (
-          <FaPlus className="text-gray-400" />
-        )}
+        <Image
+          src={
+            expandedSections.includes(title)
+              ? "/svg/icons/minus.svg"
+              : "/svg/icons/plus.svg"
+          }
+          alt={expandedSections.includes(title) ? "Collapse" : "Expand"}
+          width={20}
+          height={20}
+          className={
+            expandedSections.includes(title) ? "text-brand" : "text-gray-400"
+          }
+        />
       </button>
       {expandedSections.includes(title) && (
         <div className="px-6 pb-4 text-gray-600">{content}</div>
@@ -79,21 +87,34 @@ export default function StoreSlugPage() {
     <div className="max-w-[1200px] mx-auto px-4 py-8">
       <div className="flex flex-col lg:flex-row mb-8">
         {/* Image Gallery */}
-        <div className="lg:w-1/2 mb-8 lg:mb-0">
-          <ReactImageMagnify
-            {...{
-              smallImage: {
-                alt: product.title,
-                isFluidWidth: true,
-                src: activeImage,
-              },
-              largeImage: {
-                src: activeImage,
-                width: 1200,
-                height: 1200,
-              },
-            }}
-          />
+        <div className="lg:w-1/2 lg:mb-0">
+          <div className="relative w-full pt-[450px]">
+            <div className="absolute inset-0">
+              <ReactImageMagnify
+                {...{
+                  smallImage: {
+                    alt: product.title,
+                    isFluidWidth: true,
+                    src: activeImage,
+                  },
+                  largeImage: {
+                    src: activeImage,
+                    width: 2000,
+                    height: 2000,
+                  },
+                  enlargedImageContainerDimensions: {
+                    width: "200%",
+                    height: "100%",
+                  },
+                  enlargedImageContainerStyle: { background: "#fff" },
+                  isHintEnabled: true,
+                  shouldHideHintAfterFirstActivation: true,
+                  enlargedImagePosition: "beside",
+                  lensStyle: { backgroundColor: "rgba(0,0,0,.6)" },
+                }}
+              />
+            </div>
+          </div>
           <div className="flex mt-4 overflow-x-auto">
             {product.imagePath.split(",").map((img, index) => (
               <Image
@@ -113,7 +134,7 @@ export default function StoreSlugPage() {
         <div className="lg:w-1/2 lg:pl-8">
           <p className="text-xl mb-4 text-brand">{product.brand}</p>
           <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
-          <p className="text-xl mb-4 ">{product.tagline}</p>
+          <p className="text-sm text-gray-600 mb-4">{product.tagline}</p>
 
           {/* Info Cards */}
           <div className="mb-6 space-y-4">

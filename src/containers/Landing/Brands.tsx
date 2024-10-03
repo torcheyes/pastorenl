@@ -1,17 +1,26 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import { ParallaxLogos } from "@components/ParallaxLogos";
+
+import { Beyma } from "@components/svg/brands/beyma";
+import { LabGruppen } from "@components/svg/brands/labgruppen";
+import { JBL } from "@components/svg/brands/jbl";
+import { Dynacord } from "@components/svg/brands/dynacord";
+import { MeyerSound } from "@components/svg/brands/meyersound";
+import { RCF } from "@components/svg/brands/rcf";
+import { MartinAudio } from "@components/svg/brands/martinaudio";
+import { ElectroVoice } from "@components/svg/brands/electrovoice";
 
 const brandList = [
-  { name: "beyma", width: 100 },
-  { name: "jbl", width: 60 },
-  { name: "dynacord", width: 100 },
-  { name: "electro-voice", width: 100 },
-  { name: "rcf", width: 100 },
-  { name: "meyer", width: 100 },
-  { name: "martin", width: 100 },
-  { name: "labgruppen", width: 100 },
+  <Beyma />,
+  <LabGruppen />,
+  <JBL />,
+  <Dynacord />,
+  <MeyerSound />,
+  <RCF />,
+  <MartinAudio />,
+  <ElectroVoice />,
 ];
 
 const Brands: React.FC = () => {
@@ -48,32 +57,7 @@ const Brands: React.FC = () => {
         </div>
 
         <div className="relative overflow-hidden h-20">
-          <div className="absolute inset-y-0 left-0 w-1/12 bg-gradient-to-r from-[#f8f8f8] to-transparent z-10"></div>
-          <div className="absolute inset-y-0 right-0 w-1/12 bg-gradient-to-l from-[#f8f8f8] to-transparent z-10"></div>
-          <div
-            className="flex items-center absolute left-0 transition-transform duration-1000 ease-in-out"
-            style={{ transform: `translateX(-${offset * (100 / 6)}%)` }}
-          >
-            {[...brandList, ...brandList].map((brand, index) => (
-              <div
-                key={`${brand.name}-${index}`}
-                className="flex-shrink-0 px-4 transition-all duration-300 ease-in-out"
-                style={{
-                  width: `${100 / 6}%`, // 6 logos
-                  opacity: getOpacity(index),
-                }}
-              >
-                <Image
-                  src={`/svg/brands/${brand.name}.svg`}
-                  alt={`Brand ${brand.name}`}
-                  width={brand.width}
-                  height={50}
-                  className="max-h-12 w-auto mx-auto"
-                  style={{ objectFit: "contain" }}
-                />
-              </div>
-            ))}
-          </div>
+          <ParallaxLogos logos={brandList} baseVelocity={0.5} />
         </div>
       </div>
     </section>

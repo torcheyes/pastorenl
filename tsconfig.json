@@ -18,6 +18,7 @@
       }
     ],
     "paths": {
+      "@public/*": ["./public/*"],
       "@middleware/*": ["./src/middleware/*"],
       "@controllers/*": ["./src/controllers/*"],
       "@components/*": ["./src/components/*"],

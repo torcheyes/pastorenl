@@ -12,8 +12,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   return (
     <Link href={`/store/${slug}`} className="block">
-      <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 relative">
-        <div className="relative h-48 w-full">
+      <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 relative h-[400px] flex flex-col">
+        <div className="relative h-48 w-full flex-shrink-0">
           <Image
             src={imagePath.split(",")[0]} // Use the first image
             alt={title}
@@ -26,14 +26,23 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </div>
           )}
         </div>
-        <div className="p-4">
-          <h2 className="text-xl font-semibold mb-2">{title}</h2>
-          <p className="text-gray-600 mb-4 line-clamp-3">{tagline}</p>
-          <div className="flex items-center justify-between">
+        <div className="p-4 flex flex-col flex-grow">
+          <h2 className="text-xl font-semibold mb-2 line-clamp-2">{title}</h2>
+          <p className="text-gray-600 mb-4 line-clamp-3 text-sm flex-grow">
+            {tagline}
+          </p>
+          <div className="flex items-center justify-between mt-auto">
             <span className="text-2xl font-bold text-gray-900">
               {price.toFixed(2)}€
             </span>
-            <span className="text-gray-500 text-sm">→</span>
+            <div className="bg-brand bg-opacity-20 px-1 rounded-md">
+              <Image
+                src="/svg/icons/arrow.svg"
+                alt="Arrow"
+                width={20}
+                height={20}
+              />
+            </div>
           </div>
         </div>
       </div>

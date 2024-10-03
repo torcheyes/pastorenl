@@ -36,9 +36,9 @@ export const SellForm = () => {
     setImages((prevImages) => [...prevImages, ...files]);
   };
 
-  //const handleRemoveImage = (index: number) => {
-   // setImages((prevImages) => prevImages.filter((_, i) => i !== index));
-//  };
+  const handleRemoveImage = (index: number) => {
+    setImages((prevImages) => prevImages.filter((_, i) => i !== index));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -117,7 +117,7 @@ export const SellForm = () => {
           {/* Image Upload Box */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="bg-gray-100 p-4 rounded-lg h-48 flex flex-col items-center justify-center">
-              <label htmlFor="imageUpload" className="cursor-pointer">
+              <label htmlFor="imageUpload" className="cursor-pointer mb-4">
                 <span className="bg-brand text-white px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300">
                   <Image
                     src="/svg/icons/duplicate.svg"
@@ -137,7 +137,23 @@ export const SellForm = () => {
                   className="hidden"
                 />
               </label>
-              {/* ... (image preview code remains the same) */}
+              <div className="flex flex-wrap gap-2 mt-2">
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm flex items-center"
+                  >
+                    <span>{image.name.slice(0, 8)}...</span>
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveImage(index)}
+                      className="ml-2 text-red-500 hover:text-red-700"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -270,7 +286,7 @@ export const SellForm = () => {
             <h2 className="text-xl font-bold text-brand mb-4">
               Got Excess PA Gear? We&apos;re Interested!
             </h2>
-            <p className="text-gray-700 mb-6">
+            <p className="text-gray-700 mb-2 text-sm">
               Our specialized service caters to businesses with large quantities
               of leftover or outdated professional audio equipment. From
               speakers to amplifiers, we simplify the process of turning your
@@ -283,7 +299,7 @@ export const SellForm = () => {
             <h3 className="text-lg font-bold text-brand mb-4">
               We Make Selling Simple
             </h3>
-            <p className="text-gray-700 mb-6">
+            <p className="text-gray-700 mb-2 text-sm">
               Don&apos;t worry about logistics. We handle everything from pickup
               to payment. Bulk sellers get priority service and instant
               payments.
