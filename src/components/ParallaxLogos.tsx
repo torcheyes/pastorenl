@@ -9,8 +9,6 @@ import {
   useScroll,
   useVelocity,
   useSpring,
-  useAnimate,
-  AnimatePresence,
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
 

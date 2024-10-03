@@ -16,9 +16,21 @@ import { Eventus } from "@components/svg/clients/eventus";
 import { Biiz } from "@components/svg/clients/biiz";
 
 const Clients: React.FC = () => {
-  const topLogos = [<AVEQ />, <DEP />, <Luxonos />, <HPA />, <Roodhof />];
+  const topLogos: JSX.Element[] = [
+    <AVEQ key="aveq" />,
+    <DEP key="dep" />,
+    <Luxonos key="luxonos" />,
+    <HPA key="hpa" />,
+    <Roodhof key="roodhof" />,
+  ];
 
-  const bottomLogos = [<SL />, <Imagination />, <PRG />, <Eventus />, <Biiz />];
+  const bottomLogos: JSX.Element[] = [
+    <SL key="sl" />,
+    <Imagination key="imagination" />,
+    <PRG key="prg" />,
+    <Eventus key="eventus" />,
+    <Biiz key="biiz" />,
+  ];
 
   return (
     <div className="relative py-16 overflow-hidden bg-gray-50">

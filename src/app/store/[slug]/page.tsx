@@ -8,7 +8,7 @@ import ReactImageMagnify from "react-image-magnify";
 import { CallButton } from "@components/Button/Contact/Call";
 import { EmailButton } from "@components/Button/Contact/Email";
 import { WhatsAppButton } from "@components/Button/Contact/WhatsApp";
-import { FaCheckCircle, FaTruck, FaPlus, FaMinus } from "react-icons/fa";
+import { FaCheckCircle, FaTruck } from "react-icons/fa";
 
 export default function StoreSlugPage() {
   const { slug } = useParams();

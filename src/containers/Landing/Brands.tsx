@@ -13,18 +13,18 @@ import { MartinAudio } from "@components/svg/brands/martinaudio";
 import { ElectroVoice } from "@components/svg/brands/electrovoice";
 
 const brandList = [
-  <Beyma />,
-  <LabGruppen />,
-  <JBL />,
-  <Dynacord />,
-  <MeyerSound />,
-  <RCF />,
-  <MartinAudio />,
-  <ElectroVoice />,
+  <Beyma key="beyma" />,
+  <LabGruppen key="labgruppen" />,
+  <JBL key="jbl" />,
+  <Dynacord key="dynacord" />,
+  <MeyerSound key="meyersound" />,
+  <RCF key="rcf" />,
+  <MartinAudio key="martinaudio" />,
+  <ElectroVoice key="electrovoice" />,
 ];
 
 const Brands: React.FC = () => {
-  const [offset, setOffset] = useState(0);
+  const [_, setOffset] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,12 +33,6 @@ const Brands: React.FC = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  const getOpacity = (index: number) => {
-    const position = (index - offset + brandList.length) % brandList.length;
-    if (position === 0 || position === 5) return 0.5; // Faded logos on the ends
-    return 1;
-  };
 
   return (
     <section className="pt-[60px] bg-[#f8f8f8]">
