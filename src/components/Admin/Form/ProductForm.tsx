@@ -31,13 +31,24 @@ export function ProductForm({ initialData }: ProductFormProps) {
     sold: false,
     featured: false,
   });
+
   const [images, setImages] = useState<File[]>([]);
+  const [existingImages, setExistingImages] = useState<string[]>([]);
 
   useEffect(() => {
     if (initialData) {
       setProductData(initialData);
+      setExistingImages(initialData.imagePath.split(","));
     }
   }, [initialData]);
+
+  const removeExistingImage = (index: number) => {
+    setExistingImages((prevImages) => prevImages.filter((_, i) => i !== index));
+    setProductData((prev) => ({
+      ...prev,
+      imagePath: existingImages.filter((_, i) => i !== index).join(","),
+    }));
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -137,10 +148,13 @@ export function ProductForm({ initialData }: ProductFormProps) {
       }
     });
 
-    // Append images
+    // Append new images
     images.forEach((image, index) => {
-      formData.append(`image${index}`, image);
+      formData.append(`newImage${index}`, image);
     });
+
+    // Append existing images
+    formData.append("existingImages", JSON.stringify(existingImages));
 
     try {
       const url = initialData
@@ -467,11 +481,29 @@ export function ProductForm({ initialData }: ProductFormProps) {
           className="w-full p-2 border rounded"
         />
         <div className="mt-2 flex flex-wrap">
+          {existingImages.map((image, index) => (
+            <div key={`existing-${index}`} className="relative m-2">
+              <Image
+                src={image}
+                alt={`Existing ${index}`}
+                className="w-24 h-24 object-cover"
+                width={96}
+                height={96}
+              />
+              <button
+                type="button"
+                onClick={() => removeExistingImage(index)}
+                className="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 rounded-full"
+              >
+                X
+              </button>
+            </div>
+          ))}
           {images.map((image, index) => (
-            <div key={index} className="relative m-2">
+            <div key={`new-${index}`} className="relative m-2">
               <Image
                 src={URL.createObjectURL(image)}
-                alt={`Preview ${index}`}
+                alt={`New ${index}`}
                 className="w-24 h-24 object-cover"
                 width={96}
                 height={96}
