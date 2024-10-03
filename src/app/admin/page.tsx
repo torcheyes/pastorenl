@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
 
 export default function AdminPage() {
   const router = useRouter();
@@ -10,7 +9,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     const verifyToken = async () => {
-      const token = Cookies.get("token");
+      const token = localStorage.getItem("token");
       if (token) {
         try {
           const response = await fetch("/api/verify-token", {

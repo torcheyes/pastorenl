@@ -71,11 +71,8 @@ export function useAuth() {
         });
         const data = await response.json();
         if (response.ok && data.success) {
-          console.log("Login successful");
-          console.log("Token received:", data.token); // Debugging line
           if (data.token) {
             setToken(data.token);
-            console.log("Token set in localStorage:", getToken()); // Debugging line
           } else {
             console.error("No token received from server");
           }
@@ -104,7 +101,6 @@ export function useAuth() {
   const authFetch = useCallback(
     async (url: string, options: RequestInit = {}) => {
       const token = getToken();
-      console.log("Token retrieved from localStorage in authFetch:", token); // Debugging line
 
       if (!token) {
         console.error("No token found in localStorage");
@@ -113,8 +109,6 @@ export function useAuth() {
 
       const headers = new Headers(options.headers);
       headers.set("Authorization", `Bearer ${token}`);
-
-      console.log("Authorization header set:", headers.get("Authorization")); // Debugging line
 
       if (!(options.body instanceof FormData)) {
         headers.set("Content-Type", "application/json");

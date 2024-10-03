@@ -1,10 +1,12 @@
 "use client";
 
+import { FaEdit, FaTrash } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
+
 import { useAuth } from "@hooks/useAuth";
 import { IProduct } from "@models/product.model";
-import { FaEdit, FaTrash } from "react-icons/fa";
 
 export default function AdminProductsPage() {
   const { isAuthenticated, isLoading, authFetch } = useAuth();
@@ -90,10 +92,10 @@ export default function AdminProductsPage() {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
                     <div className="flex-shrink-0 h-10 w-10">
-                      <img
+                      <Image
                         className="h-10 w-10 rounded-full"
                         src={product.imagePath.split(",")[0]}
-                        alt=""
+                        alt="product image"
                       />
                     </div>
                     <div className="ml-4">
