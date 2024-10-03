@@ -24,16 +24,6 @@ const brandList = [
 ];
 
 const Brands: React.FC = () => {
-  const [_, setOffset] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setOffset((prevOffset) => (prevOffset + 1) % brandList.length);
-    }, 3000); // Rotate every 3 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="pt-[60px] bg-[#f8f8f8]">
       <div className="max-w-6xl mx-auto px-4">
