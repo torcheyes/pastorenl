@@ -1,29 +1,15 @@
-<svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<mask id="mask0_9_795" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="500" height="300">
-<rect width="500" height="300" rx="12" fill="url(#paint0_linear_9_795)"/>
-</mask>
-<g mask="url(#mask0_9_795)">
-<path d="M46 393L649.5 2" stroke="black" stroke-opacity="0.15"/>
-<path d="M-149 298L454.5 -93" stroke="black" stroke-opacity="0.15"/>
-<path d="M733.5 150L-27 -50" stroke="black" stroke-opacity="0.15"/>
-<path d="M601.5 286L-159 86" stroke="black" stroke-opacity="0.15"/>
-<rect width="227.2" height="315.8" transform="matrix(-0.965926 0.258819 0.258819 0.965926 439.458 -77)" fill="url(#pattern0_9_795)"/>
-<rect x="-33" y="195.608" width="274.695" height="159.685" transform="rotate(-8.92332 -33 195.608)" fill="url(#pattern1_9_795)"/>
-<rect x="217.87" y="170.701" width="371.6" height="194.8" transform="rotate(-9.08894 217.87 170.701)" fill="url(#pattern2_9_795)"/>
-</g>
-<defs>
-<pattern id="pattern0_9_795" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image0_9_795" transform="scale(0.000880282 0.000633312)"/>
-</pattern>
-<pattern id="pattern1_9_795" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image1_9_795" transform="scale(0.0010989 0.00189036)"/>
-</pattern>
-<pattern id="pattern2_9_795" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image2_9_795" transform="scale(0.000538213 0.00102669)"/>
-</pattern>
-<linearGradient id="paint0_linear_9_795" x1="7.50001" y1="6.99999" x2="389" y2="196.5" gradientUnits="userSpaceOnUse">
-<stop stop-color="#515151"/>
-<stop offset="0.897126" stop-color="#373737"/>
-</linearGradient>
-</defs>
+<svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="orangeGradient" x1="0" y1="0" x2="1" y2="1" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFA500" /> <!-- Light orange -->
+      <stop offset="100%" stop-color="#FF4500" /> <!-- Dark orange -->
+    </linearGradient>
+  </defs>
+  <rect width="500" height="300" rx="12" fill="url(#orangeGradient)" />
+  <g opacity="0.15" stroke="black">
+    <path d="M46 393L649.5 2" />
+    <path d="M-149 298L454.5 -93" />
+    <path d="M733.5 150L-27 -50" />
+    <path d="M601.5 286L-159 86" />
+  </g>
 </svg>

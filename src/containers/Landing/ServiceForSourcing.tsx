@@ -7,9 +7,9 @@ import { WhatsAppButton } from "@components/Button/Contact/WhatsApp";
 
 const ServiceForSourcing: React.FC = () => {
   return (
-    <div className="max-w-[1200px] h-[329px] mx-auto mt-[100px] mb-8">
-      <div className="flex rounded-3xl overflow-hidden shadow-lg bg-white h-full">
-        <div className="w-[800px] p-8 flex flex-col justify-center">
+    <div className="max-w-[1200px] mx-auto mt-[100px]">
+      <div className="flex rounded-3xl bg-white p-8">
+        <div className="flex-grow pr-8">
           <p className="text-brand text-sm font-semibold mb-2">
             Service for Sourcing and Installation
           </p>
@@ -34,14 +34,16 @@ const ServiceForSourcing: React.FC = () => {
             <CallButton className="bg-gray-200 text-gray-700" />
           </div>
         </div>
-        <div className="w-[400px] h-[329px] relative self-center">
-          <Image
-            src="/img/expert-audio-sourcing.png"
-            alt="Expert Audio Sourcing & Installation"
-            fill
-            objectFit="cover"
-            className="grayscale rounded-xl"
-          />
+        <div className="w-[400px] h-[297px] relative self-center flex-shrink-0">
+          <div className="absolute inset-0 rounded-xl overflow-hidden">
+            <Image
+              src="/img/expert-audio-sourcing.png"
+              alt="Expert Audio Sourcing & Installation"
+              fill
+              objectFit="cover"
+              className="grayscale"
+            />
+          </div>
         </div>
       </div>
     </div>
