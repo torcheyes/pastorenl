@@ -89,7 +89,7 @@ export const SellForm = () => {
   };
 
   return (
-    <div className="max-w-[1200px] max-h-[1138px] mx-auto p-8 bg-white rounded-lg shadow-md">
+    <div className="max-w-[1200px] max-h-[1138px] mt-8 mb-32 mx-auto p-8 bg-white rounded-lg border">
       <div className="mb-6">
         <Image
           src="/svg/icons/sound-icons-array.svg"
@@ -115,7 +115,7 @@ export const SellForm = () => {
       >
         <div className="space-y-8">
           {/* Image Upload Box */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="bg-white p-6 rounded-lg border">
             <div className="bg-gray-100 p-4 rounded-lg h-48 flex flex-col items-center justify-center">
               <label htmlFor="imageUpload" className="cursor-pointer mb-4">
                 <span className="bg-brand text-white px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300">
@@ -158,7 +158,7 @@ export const SellForm = () => {
           </div>
 
           {/* Description to Condition Box */}
-          <div className="bg-white p-6 rounded-lg shadow-md space-y-6 max-w-[554px] max-h-[750px]">
+          <div className="bg-white p-6 rounded-lg border space-y-6 max-w-[554px] max-h-[750px]">
             <div>
               <label htmlFor="description" className="block mb-2 font-semibold">
                 Description
@@ -231,7 +231,7 @@ export const SellForm = () => {
         </div>
 
         {/* Right Column Box */}
-        <div className="bg-white p-6 rounded-lg shadow-md space-y-6">
+        <div className="bg-white p-6 rounded-lg border space-y-6">
           <div>
             <label htmlFor="name" className="block mb-2 font-semibold">
               Name
@@ -310,7 +310,7 @@ export const SellForm = () => {
       </form>
 
       {/* Bottom Box */}
-      <div className="mt-4 max-w-[1140px] max-h-[100px] bg-white p-6 rounded-lg shadow-md">
+      <div className="mt-4 max-w-[1140px] max-h-[100px] bg-white p-6 rounded-lg border">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-gray-600 md:w-2/3">
             Our team will review your submission and get back to you with a

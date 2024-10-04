@@ -2,7 +2,7 @@ import React from "react";
 
 const SellHeader: React.FC = () => {
   return (
-    <div className="w-full py-8">
+    <div className="w-full mt-8">
       <div className="max-w-[1200px] h-[197px] mx-auto bg-white rounded-3xl shadow-md p-8">
         <h3 className="text-brand font-semibold mb-2">
           Service for Large Companies
