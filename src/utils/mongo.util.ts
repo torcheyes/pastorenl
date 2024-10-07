@@ -25,7 +25,8 @@ if (!global.mongooseCache) {
   global.mongooseCache = cached;
 }
 
-async function connectDB(): Promise<typeof mongoose> {
+async function connectDB() {
+  return false
   if (cached.conn) {
     return cached.conn;
   }
