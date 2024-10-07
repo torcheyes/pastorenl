@@ -27,16 +27,15 @@ const Brands: React.FC = () => {
   return (
     <section className="pt-[60px] bg-[#f8f8f8]">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-8">
-          <p className="text-brand font-semibold mb-2">
+        <div className="text-center mb-12">
+          <p className="text-brand text-[16px] font-semibold mb-2">
             International Reach and Brands
           </p>
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl text-[#1F1F1F] font-bold mb-4">
             Trusted by Industry Leaders Worldwide
           </h2>
-          <p className="text-gray-400 font-bold">
-            We&apos;ve partnered with renowned brands and clients to deliver
-            exceptional second-hand audio solutions globally.
+          <p className="text-gray-400 text-[20px]">
+            We buy, sell, and specialize in products from leading professional audio brands, ensuring top-quality second-hand solutions.
           </p>
         </div>
 

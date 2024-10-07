@@ -13,15 +13,15 @@ const AboutUs: React.FC = () => {
                 <Image
                   src="/svg/icons/plug.svg"
                   alt="Plug Icon"
-                  width={24}
-                  height={24}
+                  width={30}
+                  height={30}
                   className="mr-2"
                 />
-                <h2 className="text-2xl font-bold text-brand">
+                <h2 className="text-[32px] font-bold text-gray-900">
                   From Local Roots to Global Reach
                 </h2>
               </div>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-[20px]">
                 In the early 2000s, the local DJ scene in The Hague was booming,
                 and we saw an opportunity. We began sourcing and supplying
                 second-hand audio equipment to help local DJs get the best sound
@@ -34,7 +34,7 @@ const AboutUs: React.FC = () => {
           </div>
 
           {/* Local Roots Image */}
-          <div className="relative h-[281px]">
+          <div className="relative h-[281px] w-full">
             <Image
               src="/img/local-roots.png"
               alt="Local DJ Equipment"
@@ -45,7 +45,7 @@ const AboutUs: React.FC = () => {
           </div>
 
           {/* Expanding Image */}
-          <div className="relative h-[281px]">
+          <div className="relative h-[281px] max-lg:hidden">
             <Image
               src="/img/expanding.png"
               alt="Global Audio Equipment"
@@ -66,11 +66,11 @@ const AboutUs: React.FC = () => {
                   height={24}
                   className="mr-2"
                 />
-                <h2 className="text-2xl font-bold text-brand">
+                <h2 className="text-[32px] font-bold text-gray-900">
                   Expanding to Serve the World
                 </h2>
               </div>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-[20px]">
                 As we grew, so did our reputation for providing high-quality,
                 second-hand audio equipment. Soon, international clients began
                 reaching out, and we expanded to serve festivals, event spaces,
@@ -79,6 +79,16 @@ const AboutUs: React.FC = () => {
                 to a global audience.
               </p>
             </div>
+          </div>
+
+          <div className="relative h-[281px] lg:hidden">
+            <Image
+              src="/img/expanding.png"
+              alt="Global Audio Equipment"
+              fill
+              style={{ objectFit: "cover" }}
+              className="rounded-lg"
+            />
           </div>
         </div>
       </div>

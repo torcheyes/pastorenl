@@ -89,8 +89,8 @@ export const SellForm = () => {
   };
 
   return (
-    <div className="max-w-[1200px] max-h-[1138px] mt-8 mb-32 mx-auto p-8 bg-white rounded-lg border">
-      <div className="mb-6">
+    <div className="max-w-[1200px] mt-8 mb-32 mx-auto p-8 bg-white rounded-lg border border-[#0000000D]" style={{background: 'radial-gradient(25% 25% at 50.04% 0%, rgba(255, 85, 0, 0.2) 0%, rgba(255, 255, 255, 0) 100%)'}}>
+      <div className="mb-6 mt-8">
         <Image
           src="/svg/icons/sound-icons-array.svg"
           alt="Audio Equipment Icons"
@@ -103,7 +103,7 @@ export const SellForm = () => {
       <h1 className="text-3xl font-bold text-center text-brand mb-4">
         Submit Your Equipment
       </h1>
-      <p className="text-center text-gray-600 mb-8">
+      <p className="text-center text-[20px] text-[#464646] mb-8">
         Upload pictures, add details, and get a quick quote for your surplus
         audio gear.
       </p>
@@ -115,10 +115,10 @@ export const SellForm = () => {
       >
         <div className="space-y-8">
           {/* Image Upload Box */}
-          <div className="bg-white p-6 rounded-lg border">
-            <div className="bg-gray-100 p-4 rounded-lg h-48 flex flex-col items-center justify-center">
+          <div className="bg-white p-2.5 rounded-lg border border-[#0000000D]">
+            <div className="bg-gray-100 p-4 rounded-lg h-[227px] flex flex-col items-center justify-center">
               <label htmlFor="imageUpload" className="cursor-pointer mb-4">
-                <span className="bg-brand text-white px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300">
+                <span className="bg-brand font-semibold text-white px-5 py-4 rounded-[12px] hover:bg-orange-600 transition duration-300">
                   <Image
                     src="/svg/icons/duplicate.svg"
                     alt="Upload"
@@ -158,9 +158,9 @@ export const SellForm = () => {
           </div>
 
           {/* Description to Condition Box */}
-          <div className="bg-white p-6 rounded-lg border space-y-6 max-w-[554px] max-h-[750px]">
+          <div className="bg-white p-6 rounded-lg border border-[#0000000D] space-y-6 max-w-[554px] max-h-[750px]">
             <div>
-              <label htmlFor="description" className="block mb-2 font-semibold">
+              <label htmlFor="description" className="block mb-2 ml-2">
                 Description
               </label>
               <textarea
@@ -169,13 +169,13 @@ export const SellForm = () => {
                 value={formData.description}
                 onChange={handleInputChange}
                 rows={4}
-                className="w-full p-2 border rounded resize-none"
+                className="w-full p-2 border border-[#0000000D] rounded-[10px] resize-none"
                 placeholder="Meta"
               />
             </div>
 
             <div>
-              <label htmlFor="brand" className="block mb-2 font-semibold">
+              <label htmlFor="brand" className="block mb-2 ml-2">
                 Brand
               </label>
               <input
@@ -184,13 +184,13 @@ export const SellForm = () => {
                 name="brand"
                 value={formData.brand}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border border-[#0000000D] rounded"
                 placeholder="Enter the Brand"
               />
             </div>
 
             <div>
-              <label htmlFor="modelName" className="block mb-2 font-semibold">
+              <label htmlFor="modelName" className="block mb-2 ml-2">
                 Model
               </label>
               <input
@@ -199,14 +199,14 @@ export const SellForm = () => {
                 name="modelName"
                 value={formData.modelName}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border border-[#0000000D] rounded"
                 placeholder="Enter your Model"
               />
             </div>
 
             <div>
-              <label className="block mb-2 font-semibold">Condition</label>
-              <div className="flex space-x-2">
+              <label className="block mb-2 ml-2">Condition</label>
+              <div className="flex flex-wrap gap-2">
                 {["Bad", "Okay", "Refurbished", "Good", "Excellent", "New"].map(
                   (condition) => (
                     <button
@@ -215,10 +215,10 @@ export const SellForm = () => {
                       onClick={() =>
                         setFormData((prev) => ({ ...prev, condition }))
                       }
-                      className={`px-2 py-1 rounded ${
+                      className={`px-3 py-3 rounded-[10px] ${
                         formData.condition === condition
-                          ? "bg-brand text-white"
-                          : "border border-gray-300 text-gray-700"
+                          ? "border border-brand text-brand"
+                          : "border border-[#0000000D] text-[#9B9B9B]"
                       }`}
                     >
                       {condition}
@@ -231,9 +231,9 @@ export const SellForm = () => {
         </div>
 
         {/* Right Column Box */}
-        <div className="bg-white p-6 rounded-lg border space-y-6">
+        <div className="bg-white p-6 rounded-lg border border-[#0000000D] space-y-6">
           <div>
-            <label htmlFor="name" className="block mb-2 font-semibold">
+            <label htmlFor="name" className="block mb-2 ml-2">
               Name
             </label>
             <input
@@ -242,13 +242,13 @@ export const SellForm = () => {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border border-[#0000000D] rounded"
               placeholder="Enter your Name"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block mb-2 font-semibold">
+            <label htmlFor="email" className="block mb-2 ml-2">
               E-Mail
             </label>
             <input
@@ -257,13 +257,13 @@ export const SellForm = () => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border border-[#0000000D] rounded"
               placeholder="Enter your E-Mail"
             />
           </div>
 
           <div>
-            <label htmlFor="phoneNumber" className="block mb-2 font-semibold">
+            <label htmlFor="phoneNumber" className="block mb-2 ml-2">
               Phone Number
             </label>
             <PhoneInput
@@ -275,18 +275,19 @@ export const SellForm = () => {
                 required: true,
               }}
               containerClass="w-full"
-              inputClass="w-full p-2 pr-10 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
+              inputClass="w-full p-2 pr-10 !pl-[60px] border !border-[#0000000D] rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
               buttonClass="custom-phone-button"
               dropdownClass="custom-phone-dropdown"
+              inputStyle={{height: '57px !important'}}
             />
           </div>
 
           {/* Got Excess PA Gear Box */}
-          <div className="bg-orange-50 p-6 rounded-lg">
+          <div className="bg-[#FF55000D] p-6 rounded-lg">
             <h2 className="text-xl font-bold text-brand mb-4">
               Got Excess PA Gear? We&apos;re Interested!
             </h2>
-            <p className="text-gray-700 mb-2 text-sm">
+            <p className="text-[#9B9B9B] mb-2 text-[14px]">
               Our specialized service caters to businesses with large quantities
               of leftover or outdated professional audio equipment. From
               speakers to amplifiers, we simplify the process of turning your
@@ -295,11 +296,11 @@ export const SellForm = () => {
           </div>
 
           {/* We Make Selling Simple Box */}
-          <div className="bg-orange-50 p-6 rounded-lg">
+          <div className="bg-[#FF55000D] p-6 rounded-lg">
             <h3 className="text-lg font-bold text-brand mb-4">
               We Make Selling Simple
             </h3>
-            <p className="text-gray-700 mb-2 text-sm">
+            <p className="text-[#9B9B9B] mb-2 text-[14px]">
               Don&apos;t worry about logistics. We handle everything from pickup
               to payment. Bulk sellers get priority service and instant
               payments.
@@ -310,16 +311,16 @@ export const SellForm = () => {
       </form>
 
       {/* Bottom Box */}
-      <div className="mt-4 max-w-[1140px] max-h-[100px] bg-white p-6 rounded-lg border">
+      <div className="mt-4 max-w-[1140px] bg-white p-4 rounded-lg border border-[#0000000D]">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-sm text-gray-600 md:w-2/3">
+          <p className="text-[16px] text-[#464646] md:w-2/3">
             Our team will review your submission and get back to you with a
             quote within 24 hours.
           </p>
           <button
             type="submit"
             form="sellForm"
-            className="bg-brand text-white px-2 py-1 rounded-xl text-lg font-semibold hover:bg-orange-600 transition duration-300 flex items-center"
+            className="bg-brand text-white justify-center w-[300px] py-3 rounded-xl text-lg font-semibold hover:bg-orange-600 transition duration-300 flex items-center"
           >
             <Image
               src="/svg/icons/plane.svg"

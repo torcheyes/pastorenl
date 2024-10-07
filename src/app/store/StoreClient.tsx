@@ -46,6 +46,7 @@ export default function StoreClient() {
       }
       const response = await fetch(url);
       const data = await response.json();
+      if(data.error) return
       setProducts(data.products);
       setTotalPages(data.totalPages);
     } catch (error) {

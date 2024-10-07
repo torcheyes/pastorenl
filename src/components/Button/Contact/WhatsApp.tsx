@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { FaWhatsapp } from "react-icons/fa";
+import { Whatsapp } from "@components/svg/Social/whatsapp";
 
 interface WhatsAppButtonProps {
   className?: string;
@@ -21,10 +21,10 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
       href={whatsappUrl(phoneNumber, message)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center justify-center bg-green-500 text-white rounded-xl px-4 py-2 hover:bg-green-600 transition-colors ${className}`}
+      className={`flex items-center justify-center bg-[#3DED5E] rounded-xl px-4 py-2 hover:bg-green-600 transition-colors ${className}`}
     >
-      <FaWhatsapp className="mr-2" size={16} />
       <span>WhatsApp</span>
+      <Whatsapp className="ml-2 text-gray-700" size={16} />
     </a>
   );
 };

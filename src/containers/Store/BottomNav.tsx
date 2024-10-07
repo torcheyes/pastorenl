@@ -85,10 +85,10 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
               <button
                 key={index}
                 onClick={() => onPageChange(number)}
-                className={`px-3 py-1.5 border rounded-xl text-sm font-medium transition-colors duration-200 ${
+                className={`px-3 py-1.5 rounded-[10px] text-sm font-medium transition-colors duration-200 ${
                   currentPage === number
-                    ? "bg-brand text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    ? "bg-[#FF550026] text-brand"
+                    : "text-gray-600 hover:bg-gray-200"
                 }`}
               >
                 {number}

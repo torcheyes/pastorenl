@@ -43,8 +43,8 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
 
   return (
     <div className="w-full mb-8">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="h-[100px] relative rounded-xl overflow-hidden mb-4">
+      <div className="max-w-[1200px] mx-auto max-xl:mx-4">
+        <div className="h-[141px] relative rounded-xl overflow-hidden mb-4">
           <Image
             src="/img/store-header.png"
             alt="Equipment Marketplace background"
@@ -55,23 +55,23 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
             <div className="flex items-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-brand bg-opacity-25 backdrop-blur-md rounded-md"></div>
+                <div className="absolute inset-0 bg-[#FF550026] bg-opacity-25 backdrop-blur-md rounded-[12px]"></div>
                 <Image
                   src="/svg/icons/shop.svg"
                   alt="Shop Icon"
-                  width={20}
-                  height={20}
+                  width={40}
+                  height={40}
                   className="relative z-10 m-2"
                 />
               </div>
-              <h1 className="text-white text-xl font-bold ml-3">
+              <h1 className="text-white text-[32px] ml-3">
                 Equipment Marketplace
               </h1>
             </div>
           </div>
         </div>
-        <div className="flex justify-between items-center">
-          <nav className="flex space-x-2 overflow-x-auto pb-2 flex-grow">
+        <div className="flex flex-col justify-center">
+          <nav className="flex gap-2 flex-wrap pb-2 flex-grow">
             {categories.map((category) => (
               <StoreCategoryButton
                 key={category}
@@ -85,7 +85,7 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
               />
             ))}
           </nav>
-          <div className="flex items-center ml-4">
+          <div className="flex items-center mt-2 ml-auto">
             <SortBySelect
               label="Sort by"
               options={sortOptions}

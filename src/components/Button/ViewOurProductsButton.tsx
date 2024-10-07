@@ -14,10 +14,10 @@ export const ViewOurProductsButton: React.FC<ViewOurProductsButtonProps> = ({
       href="/store"
       className={`
                 inline-flex items-center justify-center
-                px-6 py-3
-                bg-[#0000004D] hover:bg-gray-950
-                text-white font-medium
-                rounded-xl
+                px-3 py-3
+                bg-[#FFFFFF1A] hover:bg-gray-950
+                text-white text-[20px] font-medium
+                rounded-xl h-[44px] max-lg:max-w-[237px]
                 transition-colors duration-300
                 shadow-lg hover:shadow-xl
                 ${className}

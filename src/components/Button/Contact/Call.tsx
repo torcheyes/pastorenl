@@ -12,17 +12,17 @@ export const CallButton: React.FC<CallButtonProps> = ({ className = "" }) => {
   return (
     <a
       href={`tel:${formattedPhoneNumber}`}
-      className={`flex items-center justify-center bg-gray-100 text-gray-700 rounded-xl px-4 py-2 hover:bg-gray-200 transition-colors ${className}`}
+      className={`flex items-center justify-center bg-[#0000000D] text-gray-700 rounded-xl px-4 py-2 hover:bg-gray-200 transition-colors ${className}`}
       data-rel="external"
     >
+      <span className="max-lg:hidden" >Call</span>
       <Image
         src="/svg/social/phone.svg"
         alt="Phone"
         width={16}
         height={16}
-        className="mr-2"
+        className="ml-2"
       />
-      <span>Call</span>
     </a>
   );
 };

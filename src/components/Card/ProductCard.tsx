@@ -13,7 +13,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <Link href={`/store/${slug}`} className="block">
       <div className="bg-white rounded-lg transition-transform duration-300 hover:scale-105 relative h-[400px] flex flex-col">
-        <div className="relative h-48 w-full flex-shrink-0 p-4">
+        <div className="relative h-48 w-full flex-shrink-0 p-2.5">
           {" "}
           {/* Added p-4 for 16px padding */}
           <div className="relative h-full w-full">
@@ -26,30 +26,30 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               objectFit="cover"
               className="rounded-lg"
             />
-            {sold && (
+            {!sold && (
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg">
                 {" "}
                 {/* Added rounded corners */}
-                <span className="text-red-600 text-3xl font-bold">SOLD</span>
+                <span className="text-[#FF4343] text-[20px] font-bold bg-[#FFFFFF66] rounded-[12px] px-2 py-1">SOLD</span>
               </div>
             )}
           </div>
         </div>
         <div className="p-4 flex flex-col flex-grow">
-          <h2 className="text-xl font-semibold mb-2 line-clamp-2">{title}</h2>
+          <h2 className="text-[20px] font-semibold mb-2 line-clamp-2">{title}</h2>
           <p className="text-gray-600 mb-4 line-clamp-3 text-sm flex-grow">
             {tagline}
           </p>
           <div className="flex items-center justify-between mt-auto">
-            <span className="text-2xl font-bold text-gray-900">
+            <span className="text-[24px] text-gray-900">
               {price.toFixed(2)}€
             </span>
-            <div className="bg-brand bg-opacity-20 px-1 rounded-md">
+            <div className="bg-brand bg-opacity-20 p-2.5 rounded-[12px]">
               <Image
                 src="/svg/icons/arrow.svg"
                 alt="Arrow"
-                width={20}
-                height={20}
+                width={16}
+                height={16}
               />
             </div>
           </div>

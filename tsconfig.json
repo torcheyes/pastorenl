@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,17 +22,44 @@
       }
     ],
     "paths": {
-      "@public/*": ["./public/*"],
-      "@middleware/*": ["./src/middleware/*"],
-      "@controllers/*": ["./src/controllers/*"],
-      "@components/*": ["./src/components/*"],
-      "@containers/*": ["./src/containers/*"],
-      "@models/*": ["./src/models/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@types": ["./src/types/types.d.ts"],
-      "@utils/*": ["./src/utils/*"]
+      "@public/*": [
+        "./public/*"
+      ],
+      "@middleware/*": [
+        "./src/middleware/*"
+      ],
+      "@controllers/*": [
+        "./src/controllers/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@containers/*": [
+        "./src/containers/*"
+      ],
+      "@models/*": [
+        "./src/models/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@types": [
+        "./src/types/types.d.ts"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/components/svg/Social/whatsapp.tsx",
+    "build/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

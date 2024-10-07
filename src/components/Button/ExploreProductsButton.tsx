@@ -12,7 +12,7 @@ export const ExploreProductsButton: React.FC<ExploreProductsButtonProps> = ({
   return (
     <Link
       href="/store"
-      className={`inline-flex items-center justify-center px-4 py-2 bg-brand text-white text-sm font-medium rounded-lg hover:bg-brand transition-colors duration-300 ${className}`}
+      className={`inline-flex items-center justify-center px-4 py-4 bg-brand text-white text-sm font-medium rounded-[14px] hover:bg-brand transition-colors duration-300 ${className}`}
     >
       Explore Products
       <Image

@@ -10,11 +10,11 @@ interface AboutCardProps {
 const AboutCard: React.FC<AboutCardProps> = ({ icon, title, description }) => {
   return (
     <div className="bg-white rounded-3xl p-8 flex-1">
-      <div className="w-12 h-12 mb-6">
-        <Image src={icon} alt={title} width={48} height={48} />
+      <div className="w-14 h-14 mb-12">
+        <Image src={icon} alt={title} width={60} height={60} />
       </div>
-      <h3 className="text-2xl font-bold mb-4">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-[32px] font-bold mb-4">{title}</h3>
+      <p className="text-gray-600 text-[20px]">{description}</p>
     </div>
   );
 };

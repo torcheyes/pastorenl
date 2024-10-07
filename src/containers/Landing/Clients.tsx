@@ -39,10 +39,10 @@ const Clients: React.FC = () => {
       </div>
       <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-base font-semibold text-brand tracking-wide uppercase">
+          <h2 className="text-base font-semibold text-brand tracking-wide">
             Local and International Partners
           </h2>
-          <p className="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <p className="mt-2 text-[32px] font-bold text-[#1F1F1F] sm:text-4xl">
             Some of Our Clients
           </p>
         </div>

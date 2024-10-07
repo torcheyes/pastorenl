@@ -8,7 +8,8 @@ import ReactImageMagnify from "react-image-magnify";
 import { CallButton } from "@components/Button/Contact/Call";
 import { EmailButton } from "@components/Button/Contact/Email";
 import { WhatsAppButton } from "@components/Button/Contact/WhatsApp";
-import { FaCheckCircle, FaTruck } from "react-icons/fa";
+import { BadgeCheck } from "@components/svg/BadgeCheck";
+import { TruckFast } from "@components/svg/TruckFast";
 
 export default function StoreSlugPage() {
   const { slug } = useParams();
@@ -70,8 +71,8 @@ export default function StoreSlugPage() {
               : "/svg/icons/plus.svg"
           }
           alt={expandedSections.includes(title) ? "Collapse" : "Expand"}
-          width={20}
-          height={20}
+          width={30}
+          height={30}
           className={
             expandedSections.includes(title) ? "text-brand" : "text-gray-400"
           }
@@ -117,15 +118,16 @@ export default function StoreSlugPage() {
           </div>
           <div className="flex mt-4 overflow-x-auto">
             {product.imagePath.split(",").map((img, index) => (
-              <Image
-                key={index}
-                src={img}
-                alt={`${product.title} ${index + 1}`}
-                width={100}
-                height={100}
-                className="w-20 h-20 object-cover mr-2 cursor-pointer flex-shrink-0"
-                onClick={() => setActiveImage(img)}
-              />
+              <div className="p-3.5 border border-[#0000000D] bg-white rounded-[20px] mr-2" key={index} >
+                <Image
+                  src={img}
+                  alt={`${product.title} ${index + 1}`}
+                  width={100}
+                  height={100}
+                  className="w-[43px] h-[43px] object-cover cursor-pointer flex-shrink-0 rounded-[12px]"
+                  onClick={() => setActiveImage(img)}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -133,24 +135,24 @@ export default function StoreSlugPage() {
         {/* Product Details */}
         <div className="lg:w-1/2 lg:pl-8">
           <p className="text-xl mb-4 text-brand">{product.brand}</p>
-          <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
-          <p className="text-sm text-gray-600 mb-4">{product.tagline}</p>
+          <h1 className="text-[32px] font-bold mb-4">{product.title}</h1>
+          <p className="text-[16px] text-[#9B9B9B] mb-4">{product.tagline}</p>
 
           {/* Info Cards */}
-          <div className="mb-6 space-y-4">
-            <div className="flex items-center bg-orange-50 p-4 rounded-lg">
-              <FaCheckCircle className="text-brand mr-4 text-xl" />
-              <span className="text-gray-700">
+          <div className="mb-6 space-y-2">
+            <div className="flex items-center justify-center bg-white border border-[#0000000D] p-2 rounded-[20px]">
+              <BadgeCheck className="text-brand mr-1.5 text-xl" />
+              <span className="text-[#464646] font-semibold text-[16px]">
                 All products are tested and checked before shipment.
               </span>
             </div>
-            <div className="flex items-center bg-orange-50 p-4 rounded-lg">
-              <FaTruck className="text-brand mr-4 text-xl" />
+            <div className="flex items-center justify-center bg-white border border-[#0000000D] p-2 rounded-[20px]">
+              <TruckFast className="text-brand mr-1.5 text-xl" />
               <div>
-                <span className="text-gray-700">
+                <span className="text-[#464646] font-semibold">
                   Worldwide shipping available.
                 </span>
-                <button className="block text-brand font-semibold hover:underline mt-1">
+                <button className="inline-block text-brand font-semibold hover:underline mt-1 ml-[4px]">
                   Contact us for a quote &gt;
                 </button>
               </div>
@@ -161,25 +163,25 @@ export default function StoreSlugPage() {
           <hr className="my-6 border-gray-200" />
 
           {/* Price and Contact Buttons */}
-          <div className="flex items-center justify-between">
-            <p className="text-2xl font-bold">{`${product.price.toFixed(2)}€`}</p>
+          <div className="flex items-center justify-between max-lg:flex-col gap-y-2">
+            <p className="text-[32px] text-[#464646] font-[500]">{`${product.price.toFixed(2)}€`}</p>
             {product.sold ? (
               <div className="bg-red-100 text-red-600 px-4 py-2 rounded-full font-bold">
                 SOLD
               </div>
             ) : (
               <div className="flex space-x-4">
+                <CallButton className="bg-gray-200 text-gray-700 px-4 py-2 rounded" />
+                <EmailButton className="bg-gray-200 text-gray-700 px-4 py-2 rounded" />
                 <WhatsAppButton
                   phoneNumber="31687887743"
-                  className="bg-green-500 text-white px-4 py-2 rounded"
+                  className="bg-green-500 text-[#464646] px-4 py-2 rounded"
                 />
-                <EmailButton className="bg-gray-200 text-gray-700 px-4 py-2 rounded" />
-                <CallButton className="bg-gray-200 text-gray-700 px-4 py-2 rounded" />
               </div>
             )}
           </div>
           {product.negotiable && !product.sold && (
-            <p className="text-green-600 mt-2">Price is negotiable</p>
+            <p className="text-green-600 mt-2 max-lg:text-center">Price is negotiable</p>
           )}
         </div>
       </div>

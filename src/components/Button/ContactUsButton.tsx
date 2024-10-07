@@ -1,5 +1,5 @@
+import { Whatsapp } from "@components/svg/Social/whatsapp";
 import React from "react";
-import { FaWhatsapp } from "react-icons/fa";
 
 interface ContactUsButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -19,10 +19,10 @@ export const ContactUsButton: React.FC<ContactUsButtonProps> = ({
     <button
       {...props}
       onClick={handleClick}
-      className="flex items-center justify-center bg-secondary text-white px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50"
+      className="flex text-[14px] leading-5 items-center justify-center bg-[#464646] text-[#FFFFFF] px-4 py-2 rounded-[12px] hover:bg-gray-800 transition-all duration-300  hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50"
     >
-      <span className="font-medium mr-2">Contact Us</span>
-      <FaWhatsapp className="text-green-500 h-5 w-5" />
+      <div className=" mr-2.5">Contact us</div>
+      <Whatsapp className="text-[#3DED5E]" />
     </button>
   );
 };

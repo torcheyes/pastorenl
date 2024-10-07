@@ -24,13 +24,13 @@ export const SortBySelect: React.FC<SortBySelectProps> = ({
 
   return (
     <div className="relative inline-block">
-      <div className="flex items-center border rounded-md px-4 py-2 bg-white shadow-sm">
+      <div className="flex items-center border border-[#0000000D] rounded-[12px] px-4 py-2 shadow-sm whitespace-nowrap">
         <span className="mr-2 text-gray-700">{label}</span>
         <div className="flex items-center space-x-1">
           {selectedOption?.icon && (
             <selectedOption.icon className="text-brand" />
           )}
-          <span className="text-brand font-semibold">
+          <span className="text-brand text-[14px] font-semibold">
             {selectedOption?.label}
           </span>
         </div>
