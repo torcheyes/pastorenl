@@ -4,11 +4,15 @@ import React, { useState, useEffect } from "react";
 import { IProduct } from "@models/product.model";
 import ProductCard from "@components/Card/ProductCard";
 import { ExploreProductsButton } from "@components/Button/ExploreProductsButton";
-import { CycleButton } from "@components/Button/CycleButton";
+//import { CycleButton } from "@components/Button/CycleButton";
 
 const FeaturedProducts: React.FC = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect( () => {
+
+  }, [setCurrentIndex])
 
   useEffect(() => {
     fetchFeaturedProducts();
@@ -26,7 +30,7 @@ const FeaturedProducts: React.FC = () => {
     }
   };
 
-  const handleNext = () => {
+  /*const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
   };
 
@@ -34,7 +38,7 @@ const FeaturedProducts: React.FC = () => {
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + products.length) % products.length,
     );
-  };
+  };*/
 
   const getVisibleProducts = () => {
     if (products.length === 0) return [];
