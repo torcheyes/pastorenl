@@ -18,7 +18,7 @@ export const GetAQuoteTodayButton: React.FC<GetAQuoteTodayButtonProps> = ({
     <Link
       href="/sell"
       {...props}
-      className={`inline-flex items-center justify-center text-[20px] font-[500] h-[44px] px-[10px] rounded-[14px] transition-colors duration-300 w-max-[237px] max-lg:max-w-[237px] cursor-pointer ${
+      className={`inline-flex items-center justify-center text-[16px] font-[600] h-[44px] px-[20px] rounded-[14px] transition-colors duration-300 w-max-[237px] max-lg:max-w-[237px] cursor-pointer ${
         isDark
           ? "bg-brand text-white hover:bg-orange-600"
           : "bg-[#FFF] text-black hover:bg-gray-100"

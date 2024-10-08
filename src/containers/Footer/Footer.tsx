@@ -15,10 +15,11 @@ const Footer: React.FC = () => {
             background: "linear-gradient(90deg, #1F1F1F 0%, #464646 100%)",
           }}
         >
-          <div className="mb-4 sm:mb-0 text-center sm:text-left leading-10">
-            <h2 className="text-[32px] ">Your Partner in</h2>
-            <h2 className="text-[32px] ">
-              Professional <span className="text-brand">Audio Equipment</span>
+          <div className="max-sm:w-full mb-4 sm:mb-0 max-sm:pr-[30%] text-left leading-10">
+            <h2 className="text-[32px] font-[500]">Your Partner in</h2>
+            <h2 className="text-[32px] font-[500] sm:hidden">Professional</h2>
+            <h2 className="text-[32px] font-[500]">
+              <span className="max-sm:hidden" >Professional</span> <span className="text-brand">Audio Equipment</span>
             </h2>
           </div>
           <ExploreProductsButton2 className="whitespace-nowrap" />

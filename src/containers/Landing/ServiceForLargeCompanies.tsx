@@ -5,13 +5,13 @@ import { LandingChip } from "@components/Chip/LandingChip";
 
 const ServiceForLargeCompanies: React.FC = () => {
   return (
-    <div className="max-w-[1200px] mx-auto mt-[100px]">
-      <div className="flex flex-col md:flex-row rounded-3xl border border-[#0000000D] p-4">
+    <div className="max-w-[1200px] mt-[100px] mx-auto">
+      <div className="flex flex-col md:flex-row rounded-3xl border border-[#0000000D] p-4 mx-5 sm:mx-10 lg:mx-20 xl:mx-0">
         <div className="w-full md:w-2/3 p-8 flex flex-col justify-center">
           <p className="text-brand font-semibold mb-2">
             Service for Large Companies
           </p>
-          <h2 className="text-[32px] font-bold text-gray-800 mb-4">
+          <h2 className="text-[32px] font-[600] text-gray-800 mb-4">
             Sell Your Surplus Audio Equipment Hassle-Free
           </h2>
           <p className="text-[#9B9B9B] text-[20px] mb-6">
@@ -31,8 +31,8 @@ const ServiceForLargeCompanies: React.FC = () => {
           </div>
         </div>
 
-        <div className="w-full max-w-[400px] h-[400px] relative self-center flex-shrink-0 max-lg:mt-6">
-          <div className="w-full max-w-[400px] absolute inset-0 rounded-xl brightness-[.5] overflow-hidden">
+        <div className="w-full md:max-w-[400px] h-[400px] relative self-center flex-shrink-0 max-lg:mt-6">
+          <div className="absolute inset-0 rounded-xl brightness-[.5] overflow-hidden">
             <Image
               src="/img/sell-your-surplus-audio-equipment.jpg"
               alt="Sell Your Surplus Audio Equipment Hassle-Free"

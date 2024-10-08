@@ -34,12 +34,16 @@ const Clients: React.FC = () => {
 
   return (
     <div className="relative py-16 overflow-hidden bg-gray-50">
+      <div className="flex justify-center w-full h-full absolute pointer-events-none">
+        <div className="absolute w-[653px] h-[217px] bg-[#FF550026] blur-[60px] rounded-[100%] top-[30px]"></div>
+      </div>
+      
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
         <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-100 to-transparent opacity-75 fixed" />
       </div>
       <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-base font-semibold text-brand tracking-wide">
+          <h2 className="text-base text-brand tracking-wide">
             Local and International Partners
           </h2>
           <p className="mt-2 text-[32px] font-bold text-[#1F1F1F] sm:text-4xl">

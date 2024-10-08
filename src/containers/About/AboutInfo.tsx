@@ -5,7 +5,7 @@ const AboutInfo: React.FC = () => {
   return (
     <div className="w-full">
       <div className="max-w-[1200px] mx-auto">
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-8 max-xl:mx-4">
           <AboutCard
             icon="/svg/icons/eye-dashed.svg"
             title="Our Vision"

@@ -21,7 +21,7 @@ export const CallButton: React.FC<CallButtonProps> = ({ className = "" }) => {
         alt="Phone"
         width={16}
         height={16}
-        className="ml-2"
+        className="lg:ml-2"
       />
     </a>
   );

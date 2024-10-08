@@ -52,8 +52,10 @@ const FeaturedProducts: React.FC = () => {
         <div className="flex max-lg:flex-wrap justify-between items-center mb-8">
           <h2 className="text-3xl font-bold">Featured Products</h2>
           <div className="flex items-center space-x-4 max-lg:mt-4">
-            <CycleButton direction="left" onClick={handlePrev} />
-            <CycleButton direction="right" onClick={handleNext} />
+            {
+              //<CycleButton direction="left" onClick={handlePrev} />
+              //<CycleButton direction="right" onClick={handleNext} />
+            }
             <ExploreProductsButton className="!text-[20px] whitespace-nowrap" />
           </div>
         </div>

@@ -44,7 +44,7 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
   return (
     <div className="w-full mb-8">
       <div className="max-w-[1200px] mx-auto max-xl:mx-4">
-        <div className="h-[141px] relative rounded-xl overflow-hidden mb-4">
+        <div className="h-[141px] relative rounded-[20px] overflow-hidden mb-4">
           <Image
             src="/img/store-header.png"
             alt="Equipment Marketplace background"
@@ -59,12 +59,12 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
                 <Image
                   src="/svg/icons/shop.svg"
                   alt="Shop Icon"
-                  width={40}
-                  height={40}
+                  width={30}
+                  height={30}
                   className="relative z-10 m-2"
                 />
               </div>
-              <h1 className="text-white text-[32px] ml-3">
+              <h1 className="text-white text-[32px] font-[600] ml-3">
                 Equipment Marketplace
               </h1>
             </div>
@@ -94,6 +94,7 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
             />
           </div>
         </div>
+        <div className="mt-3.5 border-b border-[#0000000D]"></div>
       </div>
     </div>
   );

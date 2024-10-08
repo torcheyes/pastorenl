@@ -4,8 +4,8 @@ import Image from "next/image";
 const AboutUs: React.FC = () => {
   return (
     <div className="w-full py-8">
-      <div className="max-w-[1200px] mx-auto bg-white rounded-3xl overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-6">
+      <div className="max-w-[1200px] mx-auto overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-6 bg-white rounded-[20px] max-xl:mx-4">
           {/* Local Roots Section */}
           <div className="flex flex-col justify-between">
             <div>

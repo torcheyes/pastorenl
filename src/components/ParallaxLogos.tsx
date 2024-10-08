@@ -69,10 +69,11 @@ export const ParallaxLogos: React.FC<ParallaxLogosProps> = ({
       <motion.div className="scroller flex-container" style={{ x }}>
         {[...Array(4)].flatMap((_, i) =>
           logos.map((logo, index) => (
-            <span key={`${i}-${index}`}>
+            <span key={`${i}-${index}`} className="flex items-center justify-center h-full">
               <motion.div
                 whileHover={{ color: "#000000" }}
                 transition={{ duration: 0.2 }}
+                className="flex items-center justify-center h-full"
               >
                 {React.cloneElement(logo, { className: "logo-svg" })}
               </motion.div>

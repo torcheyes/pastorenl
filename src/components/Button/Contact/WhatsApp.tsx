@@ -39,9 +39,9 @@ export const ChatOnWhatsAppButton: React.FC<WhatsAppButtonProps> = ({
       href={whatsappUrl(phoneNumber, message)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`cursor-pointer bg-gray-200 text-gray-700 text-lg px-2 py-1 rounded-xl hover:bg-gray-300 transition-colors duration-300 flex items-center justify-center ${className}`}
+      className={`cursor-pointer bg-gray-200 text-[#464646] text-[16px] px-3 py-1.5 rounded-xl hover:bg-gray-300 transition-colors duration-300 flex items-center justify-center ${className}`}
     >
-      <span className="mr-2">Chat on WhatsApp</span>
+      <span className="mr-1.5">Chat on WhatsApp</span>
       <Image
         src="/img/icon/whatsapp.png"
         alt="WhatsApp"
