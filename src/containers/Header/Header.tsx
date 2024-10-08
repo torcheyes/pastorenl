@@ -48,9 +48,9 @@ const Header: React.FC = () => {
       </header>
       <div className="w-full px-5 sm:px-10 lg:px-20 xl:px-0 my-3 lg:hidden">
         <div className="max-w-[1200px] mx-auto">
-          <div className="flex items-center justify-between bg-white rounded-[20px] border border-[#0000000d] px-8 py-2">
+          <div className="flex items-center justify-between bg-white rounded-[20px] border border-[#0000000d] px-5 py-2">
             <nav className="flex-grow flex justify-center">
-                <ul className="flex justify-between max-w-[300px] w-full">
+                <ul className="flex justify-between max-w-[370px] w-full">
                   {navItems.map((item) => (
                     <li key={item.path}>
                       <Link

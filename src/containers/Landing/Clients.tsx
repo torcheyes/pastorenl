@@ -34,7 +34,7 @@ const Clients: React.FC = () => {
 
   return (
     <div className="relative py-16 overflow-hidden bg-gray-50">
-      <div className="flex justify-center w-full h-full absolute pointer-events-none">
+      <div className="flex justify-center w-full h-full absolute pointer-events-none z-[20]">
         <div className="absolute w-[653px] h-[217px] bg-[#FF550026] blur-[60px] rounded-[100%] top-[30px]"></div>
       </div>
       

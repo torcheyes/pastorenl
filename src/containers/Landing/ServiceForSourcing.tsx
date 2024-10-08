@@ -9,14 +9,14 @@ const ServiceForSourcing: React.FC = () => {
   return (
     <div className="max-w-[1200px] mx-auto mt-[100px]">
       <div className="flex flex-col md:flex-row rounded-3xl border border-[#0000000D] p-4 mx-5 sm:mx-10 lg:mx-20 xl:mx-0">
-        <div className="flex-grow pr-8">
+        <div className="flex-grow pr-8 pl-3 ">
           <p className="text-brand text-sm font-semibold mb-2">
             Service for Sourcing and Installation
           </p>
-          <h2 className="text-4xl font-[600] text-gray-800 mb-4">
+          <h2 className="text-4xl font-[600] text-gray-800 max-lg:text-[24px] max-lg:leading-[38px] mb-4">
             Expert Audio Sourcing & Installation
           </h2>
-          <p className="text-[#9B9B9B] text-[20px] mb-6 max-w-[560px]">
+          <p className="text-[#9B9B9B] text-[20px] mb-6 max-lg:text-[14px] max-lg:leading-[16.94px] max-w-[560px]">
             From festivals to restaurants and gyms, we provide expert advice,
             source quality second-hand audio equipment, and offer full
             installation services. Save on costs while helping the environment
@@ -50,8 +50,8 @@ const ServiceForSourcing: React.FC = () => {
             phoneNumber="31687887743"
             className="bg-[#3DED5E] text-[#464646]"
           />
-          <EmailButton className="bg-gray-200 text-gray-700" />
-          <CallButton className="bg-gray-200 text-gray-700" />
+          <EmailButton className="bg-gray-200 text-gray-700 flex-1" />
+          <CallButton className="bg-gray-200 text-gray-700 flex-1" />
         </div>
       </div>
     </div>
