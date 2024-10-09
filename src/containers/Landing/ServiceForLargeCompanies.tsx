@@ -6,9 +6,9 @@ import { LandingChip } from "@components/Chip/LandingChip";
 const ServiceForLargeCompanies: React.FC = () => {
   return (
     <div className="max-w-[1200px] mt-[100px] mx-auto">
-      <div className="flex flex-col md:flex-row rounded-3xl border border-[#0000000D] p-4 mx-5 sm:mx-10 lg:mx-20 xl:mx-0">
-        <div className="w-full md:w-2/3 p-8 pl-3 flex flex-col justify-center">
-          <p className="text-brand font-semibold mb-2">
+      <div className="flex flex-col md:flex-row rounded-3xl border border-[#0000000D] p-3 mx-5 sm:mx-10 lg:mx-20 xl:mx-0">
+        <div className="w-full md:w-2/3 p-4 flex flex-col justify-center">
+          <p className="text-brand font-[500] mb-2">
             Service for Large Companies
           </p>
           <h2 className="text-[32px] font-[600] text-gray-800 max-lg:text-[24px] max-lg:leading-[38px] mb-4">

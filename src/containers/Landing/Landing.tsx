@@ -40,7 +40,7 @@ const Landing: React.FC = () => {
                   and Over 10,000 Products Sold
                 </p>
                 <div className="flex lg:space-x-4 max-lg:space-y-3 max-lg:flex-col">
-                  <GetAQuoteTodayButton />
+                  <GetAQuoteTodayButton className="text-[20px] !font-[500] w-fit !max-w-[unset]" />
                   <ViewOurProductsButton />
                 </div>
               </div>

@@ -10,24 +10,24 @@ const Footer: React.FC = () => {
     <footer className="w-full pt-8 pb-4 max-xl:px-5">
       <div className="max-w-[1200px] mx-auto">
         <div
-          className="text-white rounded-[20px] p-6 mb-8 flex flex-col sm:flex-row justify-between items-center"
+          className="text-white rounded-[20px] p-6 mb-8 flex flex-col md:flex-row justify-between items-center"
           style={{
             background: "linear-gradient(90deg, #1F1F1F 0%, #464646 100%)",
           }}
         >
-          <div className="max-sm:w-full mb-4 sm:mb-0 max-sm:pr-[30%] text-left leading-10">
+          <div className="max-md:w-full mb-4 md:mb-0 text-left leading-10">
             <h2 className="text-[32px] font-[500]">Your Partner in</h2>
-            <h2 className="text-[32px] font-[500] sm:hidden">Professional</h2>
+            <h2 className="text-[32px] font-[500] md:hidden">Professional</h2>
             <h2 className="text-[32px] font-[500]">
-              <span className="max-sm:hidden" >Professional</span> <span className="text-brand">Audio Equipment</span>
+              <span className="max-md:hidden" >Professional</span> <span className="text-brand">Audio Equipment</span>
             </h2>
           </div>
           <ExploreProductsButton2 className="whitespace-nowrap" />
         </div>
 
         <div className="border-t border-[#0000000D] pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center mb-4">
-            <div className="text-gray-800 mb-4 sm:mb-0 text-center sm:text-left">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-4">
+            <div className="text-gray-800 mb-4 md:mb-0 text-center md:text-left">
               <Logo className="max-w-[124px]" />
               <p className="text-base text-[#464646] mt-[14px]">Professional Sound Supply</p>
             </div>
