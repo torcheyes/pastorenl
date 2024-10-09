@@ -6,15 +6,15 @@ import { LandingChip } from "@components/Chip/LandingChip";
 const ServiceForLargeCompanies: React.FC = () => {
   return (
     <div className="max-w-[1200px] mt-[100px] mx-auto">
-      <div className="flex flex-col md:flex-row rounded-3xl border border-[#0000000D] p-3 mx-5 sm:mx-10 lg:mx-20 xl:mx-0">
-        <div className="w-full md:w-2/3 p-4 flex flex-col justify-center">
-          <p className="text-brand font-[500] mb-2">
+      <div className="flex flex-col md:flex-row rounded-3xl border border-[#0000000D] p-3 max-md:pt-0 max-md:px-4 mx-5 sm:mx-10 lg:mx-20 xl:mx-0">
+        <div className="w-full md:w-2/3 p-4 pr-8 max-md:pr-0 max-md:pl-0 flex flex-col justify-center">
+          <p className="text-brand text-[16px] font-[500] mb-2">
             Service for Large Companies
           </p>
           <h2 className="text-[32px] font-[600] text-gray-800 max-lg:text-[24px] max-lg:leading-[38px] mb-4">
             Sell Your Surplus Audio Equipment Hassle-Free
           </h2>
-          <p className="text-[#9B9B9B] text-[20px] mb-6 max-lg:text-[14px] max-lg:leading-[16.94px]">
+          <p className="text-[#9B9B9B] text-[20px] mb-6 max-lg:text-[14px] leading-[24.2px] max-lg:leading-[16.94px]">
             We buy surplus or outdated professional audio equipment from
             businesses of all sizes. Get fast quotes and hassle-free pickups for
             your unused gear.
@@ -31,7 +31,7 @@ const ServiceForLargeCompanies: React.FC = () => {
           </div>
         </div>
 
-        <div className="w-full md:max-w-[400px] h-[400px] relative self-center flex-shrink-0">
+        <div className="w-full md:max-w-[400px] h-[374.4px] relative self-center flex-shrink-0">
           <div className="absolute inset-0 rounded-xl brightness-[.5] overflow-hidden">
             <Image
               src="/img/sell-your-surplus-audio-equipment.jpg"
