@@ -64,7 +64,7 @@ const StoreHeader: React.FC<StoreHeaderProps> = ({
                   className="relative z-10 m-2"
                 />
               </div>
-              <h1 className="text-white text-[32px] font-[600] ml-3">
+              <h1 className="text-white text-[32px] max-sm:text-[24px] font-[600] ml-3">
                 Equipment Marketplace
               </h1>
             </div>

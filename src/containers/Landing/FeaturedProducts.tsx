@@ -19,7 +19,6 @@ const FeaturedProducts: React.FC = () => {
   }, []);
 
   const fetchFeaturedProducts = async () => {
-
     try {
       const response = await fetch("/api/products?featured=true");
       const data = await response.json();

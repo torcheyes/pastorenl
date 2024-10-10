@@ -13,7 +13,7 @@ const ServiceForSourcing: React.FC = () => {
           <p className="text-brand text-[16px] font-[500] mb-2">
             Service for Sourcing and Installation
           </p>
-          <h2 className="text-4xl font-[600] text-gray-800 max-lg:text-[24px] max-lg:leading-[38px] mb-4">
+          <h2 className="text-[32px] font-[600] text-[#1F1F1F] max-lg:text-[24px] leading-[38px] mb-4">
             Expert Audio Sourcing & Installation
           </h2>
           <p className="text-[#9B9B9B] text-[20px] mb-6 max-lg:text-[14px] leading-[24.2px] max-lg:leading-[16.94px]">
@@ -30,8 +30,8 @@ const ServiceForSourcing: React.FC = () => {
               phoneNumber="31687887743"
               className="bg-[#3DED5E] text-[#464646]"
             />
-            <EmailButton className="bg-gray-200 text-gray-700" />
-            <CallButton className="bg-gray-200 text-gray-700" />
+            <EmailButton className="bg-[#0000000D] !text-[#464646]" />
+            <CallButton className="bg-[#0000000D] !text-[#464646]" />
           </div>
         </div>
         <div className="w-full md:max-w-[400px] max-md:h-[183px] max-lg:h-[396px] h-[297px] relative self-center flex-shrink-0 max-md:mt-6">

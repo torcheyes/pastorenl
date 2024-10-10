@@ -58,12 +58,12 @@ export default function StoreSlugPage() {
     title: string;
     content: React.ReactNode;
   }) => (
-    <div className="border-b border-gray-200">
+    <div className="border-b border-[#0000000D]">
       <button
         className="flex justify-between items-center w-full py-4 px-6 text-left"
         onClick={() => toggleSection(title)}
       >
-        <span className="text-lg font-semibold">{title}</span>
+        <span className="text-[24px] text-[#1F1F1F] font-[600]">{title}</span>
         <Image
           src={
             expandedSections.includes(title)
@@ -79,52 +79,54 @@ export default function StoreSlugPage() {
         />
       </button>
       {expandedSections.includes(title) && (
-        <div className="px-6 pb-4 text-gray-600">{content}</div>
+        <div className="px-6 pb-4 text-[#9B9B9B]">{content}</div>
       )}
     </div>
   );
 
   return (
-    <div className="max-w-[1200px] mx-auto px-4 py-8">
+    <div className="max-w-[1200px] mx-auto max-xl:px-4 py-8">
       <div className="flex flex-col lg:flex-row mb-8">
         {/* Image Gallery */}
-        <div className="lg:w-1/2 lg:mb-0">
-          <div className="relative w-full pt-[450px]">
-            <div className="absolute inset-0">
-              <ReactImageMagnify
-                {...{
-                  smallImage: {
-                    alt: product.title,
-                    isFluidWidth: true,
-                    src: activeImage,
-                  },
-                  largeImage: {
-                    src: activeImage,
-                    width: 2000,
-                    height: 2000,
-                  },
-                  enlargedImageContainerDimensions: {
-                    width: "200%",
-                    height: "100%",
-                  },
-                  enlargedImageContainerStyle: { background: "#fff" },
-                  isHintEnabled: true,
-                  shouldHideHintAfterFirstActivation: true,
-                  enlargedImagePosition: "beside",
-                  lensStyle: { backgroundColor: "rgba(0,0,0,.6)" },
-                }}
-              />
+        <div className="flex flex-col lg:w-1/2 lg:mb-0">
+          <div className="relative w-full ">
+            <div className="p-[20px] bg-[#0000000D] rounded-[20px] inset-0">
+                <ReactImageMagnify
+                  {...{
+                    enlargedImageClassName: 'rounded-[20px]',
+                    imageClassName: 'rounded-[20px]',
+                    smallImage: {
+                      alt: product.title,
+                      isFluidWidth: true,
+                      src: activeImage,
+                    },
+                    largeImage: {
+                      src: activeImage,
+                      width: 2000,
+                      height: 2000,
+                    },
+                    enlargedImageContainerDimensions: {
+                      width: "200%",
+                      height: "100%",
+                    },
+                    enlargedImageContainerStyle: { background: "#fff", borderRadius: '20px' },
+                    isHintEnabled: true,
+                    shouldHideHintAfterFirstActivation: true,
+                    enlargedImagePosition: "beside",
+                    lensStyle: { backgroundColor: "rgba(0,0,0,.6)" },
+                  }}
+                />
             </div>
           </div>
-          <div className="flex mt-4 overflow-x-auto">
+          <div className="flex mt-4 overflow-x-auto">            
             {product.imagePath.split(",").map((img, index) => (
-              <div className="p-3.5 border border-[#0000000D] bg-white rounded-[20px] mr-2" key={index} >
+              <div className={`p-3.5 border border-[#0000000D] rounded-[20px] mr-2 ${activeImage === img ? 'bg-[#FF550026] border border-[#FF5500]' : 'bg-white'}`} key={index} >
                 <Image
                   src={img}
                   alt={`${product.title} ${index + 1}`}
                   width={100}
                   height={100}
-                  className="w-[43px] h-[43px] object-cover cursor-pointer flex-shrink-0 rounded-[12px]"
+                  className={`min-w-[43px] w-[43px] h-[43px] min-h-[43px] object-cover cursor-pointer flex-shrink-0 rounded-[12px] ${activeImage === img ? '' : ''}`}
                   onClick={() => setActiveImage(img)}
                 />
               </div>
@@ -134,25 +136,25 @@ export default function StoreSlugPage() {
 
         {/* Product Details */}
         <div className="lg:w-1/2 lg:pl-8">
-          <p className="text-xl mb-4 text-brand">{product.brand}</p>
-          <h1 className="text-[32px] font-bold mb-4">{product.title}</h1>
-          <p className="text-[16px] text-[#9B9B9B] mb-4">{product.tagline}</p>
+          <p className="text-[14px] font-[500] max-lg:mt-10 mb-4 text-brand">{product.brand}</p>
+          <h1 className="text-[32px] font-[600] leading-[38px] mb-4">{product.title}</h1>
+          <p className="text-[16px] text-[#9B9B9B] font-[500] mb-4">{product.tagline}</p>
 
           {/* Info Cards */}
           <div className="mb-6 space-y-2">
-            <div className="flex items-center justify-center bg-white border border-[#0000000D] p-2 rounded-[20px]">
-              <BadgeCheck className="text-brand mr-1.5 text-xl" />
-              <span className="text-[#464646] font-semibold text-[16px]">
+            <div className="flex items-center justify-center bg-white border border-[#0000000D] p-2 rounded-[20px] max-lg:px-10">
+              <BadgeCheck className="text-brand mr-1.5 text-xl min-w-[31px]" />
+              <span className="text-[#464646] font-[600] text-[16px]">
                 All products are tested and checked before shipment.
               </span>
             </div>
-            <div className="flex items-center justify-center bg-white border border-[#0000000D] p-2 rounded-[20px]">
-              <TruckFast className="text-brand mr-1.5 text-xl" />
+            <div className="flex items-center justify-center bg-white border border-[#0000000D] p-2 rounded-[20px] max-lg:px-10">
+              <TruckFast className="text-brand mr-1.5 text-xl min-w-[31px]" />
               <div>
-                <span className="text-[#464646] font-semibold">
+                <span className="text-[#464646] font-[600]">
                   Worldwide shipping available.
                 </span>
-                <button className="inline-block text-brand font-semibold hover:underline mt-1 ml-[4px]">
+                <button className="inline-block text-[16px] text-brand font-[600] hover:underline mt-1 ml-[4px]">
                   Contact us for a quote &gt;
                 </button>
               </div>
@@ -160,7 +162,7 @@ export default function StoreSlugPage() {
           </div>
 
           {/* Divider */}
-          <hr className="my-6 border-gray-200" />
+          <hr className="my-6 border-[#0000000D]" />
 
           {/* Price and Contact Buttons */}
           <div className="flex items-center justify-between max-lg:flex-col gap-y-2">
@@ -175,7 +177,7 @@ export default function StoreSlugPage() {
                 <EmailButton className="bg-gray-200 text-gray-700 px-4 py-2 rounded" />
                 <WhatsAppButton
                   phoneNumber="31687887743"
-                  className="bg-green-500 text-[#464646] px-4 py-2 rounded"
+                  className="bg-[#3DED5E] text-[#464646] px-4 py-2 rounded"
                 />
               </div>
             )}
@@ -187,7 +189,7 @@ export default function StoreSlugPage() {
       </div>
 
       {/* Accordion Sections */}
-      <div className="mt-8 bg-white rounded-lg shadow-md">
+      <div className="mt-8 bg-white rounded-[20px]">
         <AccordionSection
           title="Description"
           content={<p>{product.description}</p>}

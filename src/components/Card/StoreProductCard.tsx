@@ -3,20 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { IProduct } from "@models/product.model";
 
-interface ProductCardProps {
+interface StoreProductCardProps {
   product: IProduct;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { slug, title, tagline, price, imagePath, sold } = product;
+const StoreProductCard: React.FC<StoreProductCardProps> = ({ product }) => {
+  const { slug, title, price, imagePath, sold, brand } = product;
 
   return (
     <Link href={`/store/${slug}`} className="block">
-      <div className="bg-white rounded-[20px] transition-transform duration-300 hover:scale-105 relative h-[400px] flex flex-col">
-        <div className="relative h-[200px] w-full flex-shrink-0 p-2.5">
+      <div className="bg-white rounded-[20px] transition-transform duration-300 hover:scale-105 relative h-[309px] max-lg:h-[350px] flex flex-col">
+        <div className="relative h-fit w-full flex-shrink-0 p-2.5">
           {" "}
           {/* Added p-4 for 16px padding */}
-          <div className="relative h-full w-full">
+          <div className="relative h-full w-full h-[140px] max-lg:h-[180px]">
             {" "}
             {/* New wrapper div */}
             <Image
@@ -35,11 +35,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             )}
           </div>
         </div>
-        <div className="p-4 flex flex-col flex-grow">
+        <div className="p-4 pt-1.5 flex flex-col flex-grow">
+          <h2 className="text-[14px] text-[#9B9B9B] font-[500] mb-2 line-clamp-2">{brand}</h2>
           <h2 className="text-[20px] text-[#464646] font-[600] mb-2 line-clamp-2">{title}</h2>
-          <p className="text-[#9B9B9B] mb-4 line-clamp-3 text-[16px] leading-[19.36px] flex-grow">
-            {tagline}
-          </p>
           <div className="flex items-center justify-between mt-auto">
             <span className="text-[24px] text-[#464646]">
               {price.toFixed(2)}€
@@ -59,6 +57,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default StoreProductCard;
 
-// path: src/components/Card/ProductCard.tsx
+// path: src/components/Card/StoreProductCard.tsx
